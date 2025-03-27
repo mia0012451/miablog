@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>마다코하녀 용병</h2>
+                <p>
+                    헐 귀족 코하녀랑 용병 마다라 보고싶다<br>
+                    이러면 누군가 먹여주겠지??<br><br>
+                    네 제가 자급자족합니다<br><br>
+                    엄청 큰 공을 세운 마다라한테 작위 주면서 원하는거 있음 말해보라고 하는데 코하쿠를 원한다고 하면 코하쿠 집안은 뒤집어질듯....<br>
+                    왜냐면 코하쿠는 귀족중의 귀족집안의 귀하디 귀한 막내딸이라...<br>
+                    겨우 용병 나부랭이가 우리 코하쿠를 원한다고?! 하면서 마다라 죽이러 갈 준비하는 언니들<br>
+                    그리고 괜찮다며 언니들을 말리는 코하쿠...<br>
+                    사실 둘이 접전 딱 한번 있었음 좋겠다...<br>
+                    마을 축제에서 코하쿠가 납치당할뻔했는데 그걸 구해준게 마다라였고 코하쿠랑 마다라는 첫눈에 반했지만 신분차이라는게 있을테니까<br>
+                    코하쿠는 고맙다며 나중에 사례를 할테니 오우카와 쪽으로 연락을 달라고 했지만 마다라의 연락은 없었음<br>
+                    마다라는 사례를 원했던것도 아니고 위험에 처한 사람을 보고만 있을수는 없었고...<br>
+                    근데 계속 코하쿠의 얼굴과 목소리가 계속 떠올라서 괴로워하던 와중에 좋은 생각이 났음<br>
+                    옛날 옛적 용병중에 엄청 큰 공을 세운 자에게 작위를 내려줬다는걸<br>
+                    어디서 들었었던 마다라... 같은 귀족이 되면 다시한번 만나서 얘기까지 해볼 수 있겠지 싶어 전쟁에 참여하고 거기서 적의 대장 머리를 따옴<br>
+                    그 후에 왕이 불러서 갔는데 아니나다를까 작위를 내려주는거임<br>
+                    이제 다시한번 코하쿠를 볼 수 있다는 생각에 속으로만 기뻐하던 마다라에게 엄청난 말이 들렸음<br>
+                    <br>
+                    <br>원하는것.
+                    <br><br>
+                    마다라는 작위만 있으면 코하쿠에게 다가갈 수 있다고 생각했는데 혹시 알아? 결혼도 승락해줄지? 라는 심정으로 오우카와 家.... 의 따님을 원합니다. 라고 말하는거임<br>
+                    셋중에 누구냐고 물어보면 아마 막내일거라고 말하고는 오우카와쪽에서 승락하면 내 이름을 걸고 결혼까지 진행시켜주겠네. 라고 말하는 왕<br>
+                    <br>
+                    코하쿠는 마다라가 싫지 않았음. 하지만 집안에서는 엄청 반대를 하겠지<br>
+                    당장 안된다는 서신을 보내야겠구나!! 하는 집안사람들과 혼신의 힘을 다해 생각은 해보자며 어색하게 애교를 부리는 코하쿠...<br>
+                    <br>
+                    집안사람들 : 아이고!!! 이렇게 귀여운 우리 막내를!!!!! 어떻게 보내!!!!<br><br>
+                    코하쿠는 이대로는 안되겠다 싶어 납치당했을뻔한 일을 말해주고 대화 한번만 해보자고 설득함<br>
+                    그럼 집안에서도 어쩔수없다는듯이 초대만 할거다!! 하는... 당연하지... 막내가 납치당할뻔했는데 그걸 구해줬다는데... 아니 그치만 결혼은 안된다!!!!<br><br>
+                    코하쿠 : (갈 길이 멀구먼...)<br>
+                    뭐... 여차저차 마련해준 식사 자리도 마무리했다 치고 하루 묵게되는데 그날 코하쿠랑 마다라랑 함뜨 했음 좋겠다 (갑자기요?)<br>
+                    부모님방 옆 손님방을 내주었는데 코하쿠가 거기로 침입해서 마다라 위로 엎어져서는<br>
+                    마다라 씨... 는 내가 싫은가? (끼잉) 이러고 쳐다보면 절대 아니라고 그 누구보다 좋아한다고 말하는데<br>
+                    아차! 싶어서 입 꾹 다물고... 꾹 다문 입술 위에 쪽, 하고 입맞추는 코하쿠... 와 놀란 마다라<br>
+                    <br>
+                    그 뒤로는 코하쿠가 마다라의 옷을 조금씩 벗기면서 유혹할듯<br>
+                    멍청한 이 남자가 자기에게 손을 댈것같지는 않으니까...<br>
+                    마다라를 꼬시면서 하는말은 대충 하룻밤을 지냈는데 결혼을 안시켜줄리 없다<br>
+                    이런거였으면 좋겠다...<br><br>
+                    마다라는 그래도 엄청 거절하겠지. 결혼 전에 이런짓은...! 이러면서<br>
+                    근데 코하쿠는 내랑 결혼하기 싫은건가? 이러면서 얼굴공격 해버리고...<br>
+                    마다라는 그래도 안된다며 절대 손 안대려고 하는데 제 아무리 최고의 용병이라고 해도... 이 어여쁜 아가씨를 힘을 써서 밀쳐낼 순 없었다...<br>
+                    <br>
+                    <br>
+                    코하쿠는 그걸 눈치채고 그럼, 오늘 이건 내가 덮친걸세. 라고 하면서 옷을 다 벗기고 자지까지 쪽쪽 빨아대다가 자기도 옷을 벗는데 마다라는 안된다고만 하고...<br>
+                    직진녀 코하쿠는 안되는게 어디있나. 하면서 자기 안으로 마다라의 그 큰걸 넣는데 잘 안들어감<br>
+                    덩치차이 + 둘 다 처음해봄 이여서...<br>
+                    코하쿠는 바로 얼굴을 붉히면서 마다라항, 이것 좀 넣어주게나. 하면 마다라도 얼굴을 잔뜩 붉히면서 지금이라도 그만둬야하는게 아닐까아... 라고 하는데<br>
+                    코하쿠는 그거에 삐져서 억지로 안에 넣기 시작함<br>
+                    억지로 넣어서 그런지 피가 살짝 나는데 코하쿠는 눈치 못채고 (아프다는 감각만 있음)<br>
+                    마다라는 눈치채서 코하쿠상... 잠깐, 피가....! 이러는데 코하쿠가 시끄럽다며 입을 맞추고 쪽쪽 거리면서 다 넣어버림<br><br>
+                    마다라항... 드디어, 다 들어왔네... 이러면서 배를 만지작거리면<br>
+                    거기에 자극돼서 안된다는 생각이 사라진 마다라는 아예 코하쿠 골반 잡고 위아래로 움직여줄듯<br>
+                    코하쿠는 거기에 맞춰서 신음소리를 내는데 바로 옆방이 부모님방이니까 신음소리를 최대한 죽이겠지<br><br>
+                    코하쿠는 웃으면서 마다라항, 안, 된다고 했으면서어... 잘 ,만 하는, 구먼...<br>
+                    그러고 묵묵히 계속 이어가는데 어느샌가 코하쿠의 아래쪽이 점점 젖어감<br>
+                    철퍽거리는 소리가 날 정도로 젖어가고 거의 갈것같을때 쯤 코하쿠가 신음소리를 너무 크게 낸 탓인지 문이 벌컥 열리고...<br><br>
+                    둘의 정사를 부모님이 목격하고 말아버림...<br>
+                    근데 자세를 아무리 봐도 저거... 코하쿠가 덮친거다... 싶은거임<br>
+                    마다라는 식겁해하고 코하쿠는 뭐가 문제냐는듯이 부모님이 보는데도 아랑곳하지않고 계속 움직여서 결국 마다라랑 코하쿠가 거의 동시에 가버리는데<br>
+                    코하쿠가 마다라 위에 엎어져서는 헤실헤실 웃으면서 부모님 바라보면서 말하는거임<br><br>
+                    우리 둘... 이럼 결혼 할 수 있나...? (헤실헤실)<br>
+                    코하쿠 부모님 : (애기야!!!!) (뒷골)<br><br>
+                    근데 알고보니 코하쿠 부모님도 이렇게 결혼한거였고 어릴때부터 그걸 듣고 자란 코하쿠가 그걸 떠올리고 마다라의 방에 쳐들어간거면 부모님의 뒷골이 더 당기겠지 헤헤<br>
+                    그렇게 마다코하녀는 결혼해서 잘먹고 잘 살았다고 합니다!!!<br><br>
+                    <br>끗!!!!! (저기요) <br>
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

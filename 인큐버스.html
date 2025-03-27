@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>성교육</h2>
+                <p>
+                    전 무교입니다. Amen.<br>
+                    그림 하나 그린 걸로 좀좀따리 써봤습니다. 인삐는 무시 좀.<br>
+                    뇌절은 아마 할 것 같은데 언제 할 지는 모르겠고...<br>
+                    <br>
+                    주의할 게 뭐가 있지...<br>
+                    쓰레기 같은 저를 주의해주세요 (?)<br>
+                    <br>
+                    옛날 사람들은 몽마같은 거 내쫓을 때 흰 우유를 썼다고 하더라고요.<br>
+                    근데 저도 어디서 주워들은 거라 확실치 않음
+                    <br>
+                    <h3>주의</h3><br>
+                    - 일방적 관계, 약강간 등? 글 못 씀도 주의<br>
+                    ----<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    "코하쿠, 이제 너도 스스로 먹이를 찾아 나서야할 때가 온 것 같은데."<br>
+                    코하쿠라 불린 남자아이는 그 말에 동의를 했고 누나는 첫사냥은 누군가 도와주는 거라며 따라갈 거라고 했다.<br>
+                    코하쿠는 누나가 도와준다고 해도 너무 어려운 사냥감은 둘 다 지쳐 자칫 잘못하다가는 퇴마를 당할 수 있으니 쉬운 사냥감을 찾아보려 했다.<br>
+                    <br>
+                    찾아보려고 했다.<br>
+                    하지만 코하쿠의 누나는 활짝 웃으며 [사제]를 노려보자고 코하쿠를 꼬드겼다.<br>
+                    사제라니.<br>
+                    제일 어려운 사냥감을 어째서? 라는 눈빛으로 누나를 바라보자 다시 상냥한 웃음을 지어주며 도와줄테니까 겁먹지 말고 해보라는 말을 되돌려주었다.<br>
+                    <br>
+                    사제를 사냥하는 건 거의 목숨을 걸어야하는 행동 아닌가? 고민을 하던 와중에 코하쿠는 누나에게 바로 한 성당에게 끌려갔다.<br>
+                    누나를 제정신이 아니라는 듯이 바라보다가 그래, 한 번 해보지. 라는 생각으로 밑을 바라본다.<br>
+                    누나는 저 사제가 최근에 들어온 사제라며 손가락으로 갈색 머리카락을 가르켰고, 코하쿠는 평범해 보이는 갈색 머리를 뚫어지게 바라봤다.<br>
+                    <br>
+                    "저 정도면 상대할 수 있겠군."<br>
+                    <br>
+                    설마 누나가 나를 처리하려고 하는 건가 싶은 생각으로 따라왔지만 세례 받은지 얼마 되지 않은 사제라니.<br>
+                    그 정도면 거의 일반인을 사냥하는 것과 비슷한 수준이니 다행이라는 생각을 하며 말을 이어갔다.<br>
+                    <br>
+                    " 근데... 누나는 어떤 식으로 도와주려고?"<br>
+                    " 글쎄, 정신을 저~어기 멀리 던져버리고 올까? "<br>
+                    <br>
+                    그 말에 코하쿠는 누나답다며 작게 웃어넘겨버린다.<br>
+                    <br>
+                    <br>
+                    그날 밤.<br>
+                    <br>
+                    <br>
+                    사냥의 시간이 왔다.<br>
+                    <br>
+                    벌써 새벽 1시가 다 되어가는 시간임에도 불구하고 열심히 기도하는 모습이 참 멍청하다고 생각했다.<br>
+                    <br>
+                    " 없는 신에게 올리는 기도라니... "<br>
+                    " 쉿, 아가. 슬슬 시작할 거란다. "<br>
+                    <br>
+                    그 말이 끝나기 무섭게 코하쿠의 누나는 재빠르게 마다라에게 다가가 능숙하게 정신을 놓게 만들고는 뒤에 있는 코하쿠에게 지금이라며 고개를 까딱였다.<br>
+                    신호를 받은 코하쿠는 바로 위에서 내려와 누나가 알려준대로 손을 뻗어 마다라의 턱을 잡아 고정시키고 가슴을 만지며<br>
+                    입맞추기 전 두 손가락으로 혀를 내밀게 만들어 손가락 사이에 끼고 문질러댔다.<br>
+                    누나는 뒷 일은 코하쿠, 네가 알아서 잘 해봐라~ 라고 말하면서 방해 없이 조용히 나가주었다.<br>
+                    누나가 사라지고 갈색머리의 사제와 코하쿠만 남아있어 정적만이 흘렀고<br>
+                    코하쿠는 점점 축축해져가는 자신의 손가락을 바라봤다.<br>
+                    <br>
+                    손가락을?<br>
+                    <br>
+                    아니, 사제의 얼굴을.<br>
+                    <br>
+                    곱다. 아름답다. 사제들은 다 이렇게 생긴건가?<br>
+                    아니면 이 사제가 유독 잘생긴 건가?<br>
+                    <img src="images/incu.png" width="700"><br>
+                    자신의 날개짓 때문에 흩날리는 머리카락, 초점은 잃었지만 원래의 상태를 보고 싶게 만드는 녹색의 눈동자.<br>
+                    평소 금욕적으로 살아가는 사제이기 때문일까? 조금 만져진 것만으로도 흥분한건지 제 머리색과 비슷해진 눈가와 볼.<br>
+                    <br>
+                    제 딴에는 순결을 지키려 자신같은 몽마가 나타나면 정액을 대신해 가져갈 흰 우유를 앞에 놓고 기도를 하는 모습까지...<br>
+                    이렇게 사랑스러운 사람을 내가... 더렵혀야한다고?<br>
+                    <br>
+                    코하쿠는 하던 행동을 멈추고 바닥에 안착해 마다라의 얼굴을 관찰하며 양 가슴을 꾹꾹 주물렀고<br>
+                    <br>
+                    "흐으... 응..."<br>
+                    그에 반응하듯이 아직 벌려진 입에서는 신음소리가 새어나오기 시작했다.<br>
+                    "감도가... 흐음...♪"<br>
+                    그에 흥미롭다는 듯 코하쿠는 마다라의 가슴을 더 주물러댔고 이젠 아예 목덜미 부근에 입술을 지분거린다.<br>
+                    양 가슴을 주무르던 손길을 멈추고 사제의 손에 있는 십자가를 툭 하고 다른 물건을 이용해 떨궈버린다.<br>
+                    이제 코하쿠를 막고 있는 건 사제가 입고 있는 사제복 뿐이다.<br>
+                    <br>
+                    금욕적인 삶을 살 예정이라는 듯 목 아래의 피부의 노출은 존재하지 않았고 장갑도 아예 팔뚝까지 오는 장갑을 껴두었다.<br>
+                    가죽 한벌옷만 겨우 걸치고 있는 코하쿠와는 대조된 모습이 다른 사람이 봤다면 참 이상하다고 보여졌을 것이라 생각 되었다.<br>
+                    사제복을 풀어보는 건 처음이라 조금의 버벅거림이 있긴 했지만 그래도 잘 풀어낸 코하쿠는 뿌듯하다는 듯한 표정으로 사제의 맨 몸을 보게 되었다.<br>
+                    여기서 시간을 더 지체한다면 정신을 차리고 자신을 퇴마하려 들 것이다.<br>
+                    그런 생각이 든 코하쿠는 바로 마다라를 제대 위로 눕혀 다리를 벌리게 만들었고 혹시라도 중간에 정신을 차릴까<br>
+                    사제복 위에 덮는 천인 영대로 팔을 뒤로 모아 손목을 꽁꽁 묶어두고는 바로 아래쪽으로 손을 가져다댔다.<br>
+                    <br>
+                    "덩치에 어울리는 물건을 가지고 있네. 앞으로는 평생 쓸 일이 없을텐데... 불쌍하게 됐구먼."<br>
+                    <br>
+                    짧게 말 한마디를 해두고는 아래쪽에 존재하는 배설만을 위한 구멍에 손가락 하나를 집어 넣는다.<br>
+                    <br>
+                    "윽... 우으..."<br>
+                    <br>
+                    아프다는 듯 위에서 소리가 들려오자 코하쿠는 작게 웃으며 조금만 참아라. 라고 다정하게 말하고는 추삽질을 시작했다.<br>
+                    추삽질은 조금밖에 하지 않았는데 축축하게 젖은 아래를 보고 코하쿠는 직접 사냥하는 게 처음이니<br>
+                    아래가 서서히 젖어가는 것을 신기하다는 듯이 바라봤다.<br>
+                    <br>
+                    이게 우리들의 능력이라는 것을 누나가 알려주어 어느정도는 알고 있었지만 이 정도일 줄은 몰랐으니 당연한 결과였다.<br>
+                    젖은 구멍은 손가락을 거부감 없이 받아들였고 찌꺽거리는 소리와 함께 점점 넓혀져가고 있었다.<br>
+                    <br>
+                    "흐... 으, 흣..."<br>
+                    <br>
+                    아래쪽의 감각도 이제는 고통보다 쾌감이 앞서는지 위에서는 거친 숨소리와 함께 신음소리가 들려왔고 코하쿠는 그 소리가 듣기 좋다는 생각을 하고 있었다.<br>
+                    <br>
+                    "얼굴도 고운데 목소리도 곱네... 더 울어주면 더할 나위 없겠군."<br>
+                    <br>
+                    코하쿠는 그렇게 중얼거리며 제 옷을 벗어 제 것을 바로 마다라의 아래쪽 입구에 맞춰 지분거리다가 힘을 실어 안으로 밀어넣었다.<br>
+                    이미 젖을대로 젖은 입구였지만 코하쿠의 물건이 너무 크기 때문인지 제대로 들어가지 않았다.<br>
+                    코하쿠는 그런 걸 배려해 줄 인큐버스가 아니기에 잠시 뒤로 몸을 젖혔다가 다시 팍! 하고 힘을 실어 중간까지 밀어넣었다.<br>
+                    <br>
+                    "끄, 흐으... 하... 아아..."<br>
+                    <br>
+                    마다라의 초점 없는 눈은 위로 올라가 있었고 몸은 코하쿠의 것을 받기 힘들다는 듯이 바들바들 떨고 있었다.<br>
+                    <br>
+                    "흐응... 사제 씨, 아직 다 안 들어갔는데... 이걸로 힘들어하면 어쩌나."<br>
+                    <br>
+                    이제는 사랑스러워보이는 사람을 더럽혀야한다는 죄책감보다는 잣니에게 몸을 대주고있는 모습이 더 사랑스러워보여<br>
+                    코하쿠는 중얼거리듯 말을 이어나갔다.<br>
+                    <br>
+                    " 죄책감은 죄책감이고, 이렇게 아름답게 울어주는데... 나도 보답을 해야하지 않겠나. "<br>
+                    <br>
+                    더 이상 출입을 불허한다는 듯이 막혀있는 끝부분을 꾹꾹 눌러댔다가 마다라가 숨을 한 번 들이쉬는 순간<br>
+                    힘을 실어 더 깊숙히 파고들어 직장의 끝을 뚫고 s자 결장을 뚫어버린다.<br>
+                    <br>
+                    "긋... 아! 아아...... ...아...?"<br>
+                    <br>
+                    "응? 벌써 정신이 돌아왔나? 뭐, 상관 없지."<br>
+                    <br>
+                    마다라는 혼란스럽다는 듯이 코하쿠와 자신의 아래를 몇 번 번갈아 바라보다가 혼신의 힘을 다 해 발길질을 했지만<br>
+                    코하쿠는 신경쓰지 않고 허리짓을 다시 시작하며 직장과 s자결장을 번갈아 들낙날락거리며 자극을 주기 시작했다.<br>
+                    <br>
+                    "힉... 흑, 안, 안돼애... 하, 악...!!"<br>
+                    <br>
+                    비명소리와 신음소리가 섞인 소리를 질러가며 고개를 절레절레 젓는 모습이 귀여워보여 코하쿠는 허리짓의 속도를 높혔고<br>
+                    조용했던 기도실은 어느새 둘의 소리로 가득차게 되었다.<br>
+                    <br>
+                    "주, 거! 아 아... 안대... 아, 악! 살려, 흑. 흐하아...!"<br>
+                    "응, 응... 조금만, 조금만 참아라. 그럼 훨씬 더 기분 좋아질테니."<br>
+                    <br>
+                    마치 아이를 달래듯이 상냥한 어조로 달래주고 있지만 허리짓은 멈추지 않는 탓에 마다라는 정말 미칠 것 같았다.<br>
+                    대체 언제부터 이러고 있었던거고 왜 나는 눈치채지 못했지? 정액과 흰 우유도 구분을 못하는 멍청한 몽마들이라고 하지 않았나?<br>
+                    자신보다 더 높은 사제들이 해주었던 충고를 떠올리다가도 갑작스럽게 올라오는 쾌감과 고통 탓에 모든 생각이 한번에 날아가버려<br>
+                    마다라의 머릿속은 말 그대로 백지 상태가 되어버렸다.<br>
+                    아파, 기분 좋아. 아냐, 그만.<br>
+                    <br>
+                    "히극, 그... 아... 아아......!"<br>
+                    <br>
+                    어느정도의 희롱을 견뎌냈을까, 무언가 나올 것 같다는 몸의 반응에 더는 안 된다며 열심히 고개를 절레절레 저어보지만<br>
+                    그런 고개짓에 그만 둘 인큐버스가 아니었다.<br>
+                    <br>
+                    결국 사정감을 참아내지 못 한 마다라가 사정을 해버리고 말았다.<br>
+                    마다라가 싼 정액이 배 위에 그대로 고여있자 코하쿠는 입맛을 다시며 손으로 마다라의 배를 흝었고 제 손에 묻은 정액을 혀로 할짝거리며 정액을 섭취했다.<br>
+                    그 광경을 제 눈 앞에서 목겨하게 될 날이 오게될 줄 몰랐다는 듯이 마다라의 얼굴에는 수치심이 가득해졌다.<br>
+                    <br>
+                    " ㄷ, 대체 뭐... 뭐야...! 왜, 왜 나한테...!"<br>
+                    " 응? ...사제 씨, 아직 내 성기가 사제 씨 안에 있다는 걸 잊지 말아줬으면 좋을 것 같네. "<br>
+                    <br>
+                    그렇게 말하며 코하쿠는 허리를 슬쩍 빼냈고 찔꺽 하는 소리와 함께 반절이 빠져나왔다.<br>
+                    <br>
+                    " 힉. "<br>
+                    " 뭔가 안에 두툼한게...? 아, 그건가. "<br>
+                    <br>
+                    코하쿠는 단번에 전립선이라는 걸 알아차렸고 성에 무지한 마다라는 갑자기 전기 충격을 주듯 올라오는 <br>
+                    쾌감에 당황하며 저도 모르게 소리를 내뱉고 말았다.<br>
+                    그리고 이어지는 말에 마다라는 황당해했다.<br>
+                    <br>
+                    " 사제 씨, 나는 지금 식사를 하러 온 걸세. 서로 힘 뺄 필요 없이 혐조 해주면 좋겠구먼. "<br>
+                    " 무슨... 난 네가 말한 것 처럼 사제란다아...? 사제는 이런... 이런 일은... 절대 하지 않... 앗, 읏...! "<br>
+                    " 잔소리는 나중에. 얼굴도, 목소리도 예쁘니... 잔소리 쯤은 들어주겠네. "<br>
+                    " 무, 슨...! 힉, 그, 그마안...! 잔, 소리가 하... 아니라, 앗... 퇴마 앗, 해버릴... 으응...!! 사, 람 마알, 조 옴...! 흐긋... "<br>
+                    " 끝나고... 끝나고 듣겠네. 하아... 사제 씨의 안... 너무 좋네. 하루종일 하고 싶을 정도로. "<br>
+                    " 무슨 헛ㅅ, 힉... 거, 기히이... 안, 안... ㄷ 안 돼, 안ㄷ "<br>
+                    " 지금 사제 씨의 몸을 마음대로 할 수 있는 게 누구인지, 사제 씨를 찍어 누르고 있는 게 누구인지 알아줬으면 좋겠구먼. "<br>
+                    " 아... 아응...! 나, 안... 안 돼...! 흐읏, 아...! 두고, 봐... 아, 앗...! "<br>
+                    <br>
+                    사랑스러운 얼굴, 목소리, 귀여운 말투. 이 정도면 다음 번 사냥도 이 사제를 사냥해도 되겠는데?<br>
+                    그런 생각을 하면서 코하쿠는 마다라가 빠르게 갈 수 있도록 전립선을 자극하면서 꼬리로 마다라의 요도 입구를 농락하기 시작했고<br>
+                    앞 뒤로 자극을 받아서인지 점점 몸을 떠는 횟수가 늘어갔다.<br>
+                    <br>
+                    " 히극... 흑, 아, 제발, 갈, 갈... 것 같, 안 돼... 안, 돼요 제발... 그만, 하느님... 굽어, 흣... 살, 피... 긋, 흣... "<br>
+                    성관계 도중에 기도라니 사제답다고 생각하며 다시 퍽퍽 전립선과 직장 내부를 번갈아 자극을 주자 마다라는 고개를 뒤로 확 젖히며 바들바들 떨어댔다.<br>
+                    <br>
+                    " ? 잠깐, 지금 간 것 같다만... 정액은 내보내야 내가 식사를 할 것 아닌가, 사제 씨! "<br>
+                    <br>
+                    드라이로 가버린 게 마다라 탓은 아니지만 정액을 맛볼 수 없다는 생각에 토라진 코하쿠는 다시 배려없이 안을 퍽 퍽 내리 찍기 시작했다.<br>
+                    <br>
+                    " 죽, 어... 죽, 악...! 힉, 아 아 나아, 나아 죽, 어어...! 흣, 방금, 방금... 악! "<br>
+                    " 인간은 그래 쉬이 안 죽는다! 빨리 정액이나 내놔라, 사제 씨. "<br>
+                    " 흐으... 윽, 끄윽, 흑...! "<br>
+                    <br>
+                    그러나 코하쿠의 바람과는 다르게 두번 연속 드라이로 가버린 마다라였고 코하쿠는 어이없다는 듯이 다시 퍽퍽 찍기 시작했다.<br>
+                    <br>
+                    " 조옴... 남들 다 하는 식사도 못하게 할 건가? 못 된 사제님이구먼. "<br>
+                    " ... ~ , ! "<br>
+                    <br>
+                    이제 마다라는 신음소리나 숨도 들이쉬지 못한채로 바들바들 떨기밖에 하지 못하게 되었고 코하쿠는<br>
+                    어떻게 이 모습도 예쁘지? 아니, 내 식사! 그 두개의 생각만 하면서 열심히 박아댔다.<br>
+                    <br>
+                    결국 마다라는 정액을 왈칵 쏟아내면서 가게 되었고 코하쿠는 원하던 것을 얻게 되어 기쁘다는 표정으로 마다라의 안에 있던 제 성기를 빼내고는<br>
+                    바로 입을 가져대어 배에 고인 정액을 쬽쬽 빨거나 핥아 갔지만 다 먹고도 허기가 조금 남아있는지 마다라의 것을 입에 머금고 쪽쪽 빨기 시작했다.<br>
+                    <br>
+                    " 흐그. ㄱ... 아... 그... 으힉...."<br>
+                    " 가망이 이허라. 댜 사에히가 후조하게 내줘허 그엉거 아잉가 (가만히 있어라 .다 사제 씨가 부족하게 내줘서 그런 거 아닌가) "<br>
+                    <br>
+                    " 입에 물, 고 말... 흐으응...!"<br>
+                    " 뭐아응거아 (뭐라는 건가) "<br>
+                    <br>
+                    마다라는 정말 이대로 죽는 게 아닐까 싶은 쾌감에 결국 기절해버렸고 코하쿠는 [기절하면 정액을 잘 안 내놓드라~ 사냥감이 기절하면 내만 고생한다~!]<br>
+                    라고 했던 누나의 말이 떠올라 혀를 차며 펠라를 끝내고 마다라의 얼굴을 구경하면서 깨어나기를 기다린다.<br>
+                    
+                </p>
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

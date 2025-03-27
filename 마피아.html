@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>성교육</h2>
+                <p>
+                   강제성, 약물, 합의되지 않은 성관계, 성인x미성년자 주의, 썰체주의<br>
+                   <br>
+                   <br>
+                   고약한 취미를 가진 사람들에게 비위를 맞춰주느라 마다라는 어쩔 수 없이 남창가에 들어가게 되는데<br>
+                   딱 봐도 약에 취해 눈이 풀려있는 남자아이가 자기를 기다리고 있엇음<br>
+                   이런 어린 아이를 건드리는 건 별로 내키지 않지만 밖에 누군가가 지켜보고 있는 느낌이 들어서<br>
+                   하는 수 없이 펠라만 시키기로 생각하면서 자기 거 꺼내고 코하쿠 입에 물리겠지<br>
+                   <br>
+                   코하쿠는 버려진 아이인데 지금까지 먹여주고 키워준 값은 해야한다며 손님을 받을 나이가 되자마자<br>
+                   방에 넣으려고 했는데 계속 싫다고 도망치니까 결국 물 한잔에 들어있던<br>
+                   무색 무취의 약물에 의해 몸을 자기 마음대로 컨트롤 할 수 없게 되고 마피아 보스인 마다라의 방에 보내지게 된거<br>
+                   <br>
+                   몸은 잘 못 움직이겠는데 정신은 멀쩡하니 싫다며 우으.. 으... 거리겠지<br>
+                   근데 마다라는 싫어하는건지 모르고 냅다 입에 물린거고 자기 마음대로 몸이 움직여지지 않으니까<br>
+                   물린채로 가만히 있는 코하쿠<br>
+                   <br>
+                   마다라는 입에 물리고 끝에만 살짝 넣는 시늉만 하려고 했는데 얼굴이 너무 자기 취향으로 생겨서<br>
+                   아직 어린아이 같아보여 조심스럽던 행동을 집어던지고 아예 목 깊숙히 뿌리 끝까지 넣어버리겠지<br>
+                   <br>
+                   그러면 코하쿠는 갑자기 너무 깊이 들어와서 생리적인 눈물을 뚝뚝 떨구면서 헛구역질을 하는데<br>
+                   그 행동에 가학심이 생겨버린 마다라는 코하쿠를 더 울리고 싶어서 이번에는 아예 빠르게<br>
+                   끝부터 뿌리까지 계속 쳐박겠지<br>
+                   <br>
+                   약물때문인지 입 천장에 닿는 것도 느껴버리게 되어버린 코하쿠라서<br>
+                   금새 억눌린 신음소리 내면서 크게 움질거리고...<br>
+                   마다라가 그 얼굴에 싸버리면 반사적으로 눈 꼭 감고 그동안 못 쉬었던 숨을 쉬면서 헛기침만 해대고...<br>
+                   <br>
+                   근데 밖에서 누가 보고 있다고 했잖아.<br>
+                   밖에서는 코하쿠가 제대로 잘 하고 있나 감시하고 있는 거였고 마다라는 그걸 눈치채버려서<br>
+                   끝까지 안 하면 이 작은 아이가 무슨 일을 당할지 몰라 어쩔 수 없이 뒤에도 넣어야겠다는 생각으로<br>
+                   뒤를 손가락으로 꾹 누르는데 저항없이 쑥 들어가는거지<br>
+                   <br>
+                   알고보니 처음 손님을 받는 거니까, 손님이 불쾌해하면 안 되니까 준비를 다 시켜둔채로 보낸 거였는데<br>
+                   이러면 풀어주지 않아도 괜찮겠지 싶어서 바로 입구에서 지분거리다가 끝까지 한번에 푹 하고 박아버리고<br>
+                   코하쿠는 사냥당한 동물처럼 끄으, 흐... 거리면서 숨도 제대로 못 쉬고 꺽꺽 거리겠지<br>
+                   <br>
+                   마다라는 두뇌회전이 빠를 거니까 분명 첫 손님이라는 걸 눈치 챘을 거고 첫 손님이 난폭하게 굴면<br>
+                   다음 손님을 맞이할 때 조금 무뎌지지 않을까 하는 생각을 하는 마다라<br>
+                   <br>
+                   그래서 숨 고를 시간도 채 주지 않고 바로 허리를 움직여 자비 없이 박아대고 코하쿠는 얼굴부터 가슴까지 붉어져서<br>
+                   박히는대로 자연적인 숨소리랑 신음소리만 내뱉으면서 허리는 자연스레 휘고 다리를 파드득 거리면서<br>
+                   눈물 뚝뚝 흘리면서 그나마 잡고있던 정신도 툭 하고 끊어지겠지<br>
+                   <br>
+                   정신이 끊어지자마자 눈도 더 풀리고 코로 숨쉬는 걸 잊은 듯 입을 한껏 열어서 입으로 숨을 쉬는데<br>
+                   마다라는 그걸 놓치지 않고 코하쿠의 입 안에 남은 손 하나를 넣어서 혀를 유린하고...<br>
+                   그 때문에 숨을 제대로 못 쉬겠다는 듯이 헐떡거림<br>
+                   <br>
+                   정신 없이 박히던 코하쿠는 어느새 정액뿐만 아니라 정체불명의 물을 박힐 때마다 내뿜고 있었고<br>
+                   그 물이 아직 어린아이의 티를 벗어나지 못 한 코하쿠의 뽀송뽀송한 몸을 잔뜩 적시고 있음<br>
+                   <br>
+                   마다라는 뭐에 홀린듯 코하쿠의 두 팔을 잡고 있던 걸 풀어주고 코하쿠의 몸을 두 손으로 만져댐<br>
+                   <br>
+                   근데 코하쿠는 성에 대한 걸 배우기 전이고 원래 손님 받기 전에는 어떻게 해야 손님을 만족시킬 수 있고<br>
+                   안전하게 받아낼 수 있는지에 대해 알려주는데 코하쿠는 계속 도망만 다녀가지고 배울 시간이 없었음<br>
+                   <br>
+                   그래서 코하쿠는 자기 성감대도 모르고 알고 있다고 해도 이미 정신을 다 놔버린 상태였고<br>
+                   마다라는 마피아의 보스가 된 지 얼마 안 된 상태여서 이런 곳은 처음 와보는 거라 어떻게 해야하는지 몰라<br>
+                   둘 다 삐걱거리는 중인데 그 와중에 코하쿠의 성감대를 찾아버린 마다라<br>
+                   <br>
+                   계속 코하쿠 몸을 만지고 있었는데 외복사근 근처를 만지자마자 애가 펄떡 뛰다 못해 덜덜 떠는거<br>
+                   <br>
+                   혹시나 싶어서 다시 그 쪽을 지분거리는데 없는 힘을 짜내면서 피하는 게 눈에 보여서 바로 다시 허리짓을 시작했고<br>
+                   아까 지분거렸던 곳을 쪽쪽 빨거나 핥는데 지금까지의 반응이랑은 너무 달랐던거지<br>
+                   <br>
+                   고개는 뒤로 젖혀지고 허리는 잔뜩 휘어서 등 뒤를 지분거려도 될 정도고 무엇보다 아래쪽이 엄청 조여서<br>
+                   살짝 미간을 찌푸리는데 그만둘 생각은 전혀 없는 마다라였다...<br>
+                   <br>
+                   쾌감도 너무 오래, 크게 오면 고통이라는 말이 있듯이 코하쿠는 그만, 그만...! 이러면서 비명을 질렀는데<br>
+                   마다라는 그 비명조차 듣기 좋다는 듯이 멈추지 않고 계속 쾌감을 주입했다<br>
+                   <br>
+                   결국 코하쿠는 기절해버리고 기절 해도 안 놔주는 마다라...<br>
+                   결국 몇 번 더 하게 되고 뒷정리를 해주다가 사람들이 들어와서<br>
+                   코하쿠를 데려가면서 뒷정리는 저희가 할테니 편히 쉬십시요. 이러는거<br>
+                   <br>
+                   <br>
+                   -<br>
+                   다음날 코하쿠가 눈을 떴는데 목을 잔뜩 쉬어서 말도 못하겠지 몸 여기저기는 두드려 맞은 것처럼 아프지<br>
+                   허리가 너무 아파서 일어날 수 없지 어제 뭘 했는지 기억이 또렷하지는 않았는데<br>
+                   몸 상태를 보고 결국 하게 되었구나... 이 생각하면서 멍하니 천장만 바라보고 있을듯<br>
+                   <br>
+                   사람들이 들어와서 이제 일어났냐고 걱정했다고 하는데 목 아파서 말을 못하겠다는듯 고개를 끄덕이려는데<br>
+                   뒷목도 당겨서 못하겠는 코하쿠.<br>
+                   그게 조금 서러워서 입을 꾹 다물고 있으니 사람들이 코하쿠 몸을 치료해주기 시작함.<br>
+                   <br>
+                   치료가 끝나고 몇 달이 지나도 방에 넣지 않길래 무슨 일이지 싶어서 주인방에 기별을 넣고 뽈뽈 거리며 걸어갔는데<br>
+                   첫날에 안았던 남자가 자기 전용으로 1년 예약금을 미리 전부 지불해두고 주인이 원하는 금액, 코하쿠의 치료비를 내고 갔다는 거야.<br>
+                   코하쿠는 어이가 없어하면서 누군가의 전용으로는 들어갈 생각 없고 예약금은 돌려주고 치료비는 몸을 팔아서라도 갚겠다고<br>
+                   다음 사람을 받아달라고 요청하게 되지.<br>
+                   <br>
+                   주인장은 이거 이래도 되는 건가 싶지만 애가 원하니까 어쩌겠어 싶어 돈도 다 돌려주고<br>
+                   코하쿠가 한 말 그대로 다 쪽지에 적어서 보냈겠지<br>
+                   <br>
+                   마다라는 그걸 보고 중요한 회의중임에도 불구하고 바로 코하쿠에게 달려갔는데 이미 손님을 받고있다는 거야.<br>
+                   <br>
+                   바로 총을 꺼내들고 어느방이냐고 물어보는데 주인장은 오늘은 몸을 파는게 아니고 술시중만 드는 거라고<br>
+                   그게 끝나면 바로 불러오겠다고 하면서 마다라를 진정시키고 다른방에 넣어두지<br>
+                   <br>
+                   한편 코하쿠는 술지중을 들면서도 제 몸을 더듬거리는 이 더러운 짐승새끼를 죽여버리고 싶다는 마음만 가득해서<br>
+                   실행에 옮겨버릴까 생각을 하는데 갑자기 문이 열리고 코하쿠 대신 다른 아이로 교체가 되어버려 얼떨떨해하면서 나가게 됨<br>
+                   <br>
+                   그러면서 다른 방 앞으로 코하쿠를 데려가는데 첫날밤의 그 사람이라며 높으신분이니 실수하지 말라고 당부하면서<br>
+                   노출이 있는 기모노를 더 내려서 어깨에서 떨어질랑 말랑하게 걸쳐두는 거 보고 헛숨을 내뱉으면서도 알겠다고 고개를 끄덕이며 들어가지.<br>
+                   <br>
+                   들어가자마자 보이는...<br>
+                   기억하기도 싫은 첫날밤의 그 짐승인지 사람인지 모를 사람이 여유롭게 침상 위에 앉아있는 걸 보고 코하쿠는 속이 뒤틀리기 시작해.<br>
+                   <br>
+                   무슨 일로 왔냐고 물어보는 코하쿠와 그동안 잘 지냈냐며 다정하게 물어보는 마다라.<br>
+                   이건 대화를 하러 온 사람이 아니라 무언가를 통보 하러 온 저승사자 같았음.<br>
+                   <br>
+                   마다라는 제 무릎을 톡톡 치면서 와서 앉으라고 하는데 코하쿠는 마다라 바로 앞의 바닥에 앉아서는 마다라를 올려다봄.<br>
+                   <br>
+                   마다라는 조금 아쉬워하는 표정을 지어보였지만 이내 그날의 풀려있던 얼굴과는 다르게 정돈된 얼굴을 보며<br>
+                   다시한번 자신의 취향 탓에 현타가 오는 중이였으면...<br>
+                   <br>
+                   코하쿠는 계속 자기만 빤히 바라보기에 바쁘니 할 말 있으면 하고 꺼져라. 이렇게 말하는데<br>
+                   마다라는 그런 말투를 자신에게 하는 사람이 지금까지 없었어서 재밌다는 듯이 한 번 크게 웃어버리고<br>
+                   그럼 본론 부터 말해볼까아~ 라고 하면서 웃음기를 싹 걷어낸다.<br>
+                   <br>
+                   갑자기 차가워진 분위기에 코하쿠는 긴장해버렸고 그게 귀여워보여서 마다라의 표정도 아주 살짝 풀어졌다.<br>
+                   <br>
+                   마다라는 정말 자기만 받으려는 생각은 없는건지 물어보는데 코하쿠는 아주 단호하게 평생 그럴 생각 없다며 대답함.<br>
+                   <br>
+                   마다라는 조금 심기에 거슬린다는 듯이 눈썹을 작게 움직였다가 자리에서 일어나서 코하쿠를 바닥에 내치면서<br>
+                   코하쿠의 목을 발로 꾹 밟아버린다.<br>
+                   <br>
+                   코하쿠는 갑작스러운 상황에 당황하면서 일단 마다라의 발목을 두 손으로 잡고 꾹 누르는데 철근을 누르는건지<br>
+                   사람 발목을 잡는건지 모를 단단함에 눈을 꾹 감는다.<br>
+                   <br>
+                   마다라는 바로 입을 열어.<br>
+                   사실 오늘 여기 온 이유는 코하쿠를 사려고 온 거고 계속 이렇게 말을 듣지 않으면 "주인" 으로서 교육을 할 수 밖에 없다면서<br>
+                   목을 밟던 발을 옮겨 턱을 두어번 툭툭 건들이고 바로 떼어내겠지.<br>
+                   <br>
+                   코하쿠는 그게 무슨말이냐며 내가 니 아래로 갈 것 같냐고 성질을 부리는데 이미 얘기가 끝났다고 계약서를 코하쿠 앞에 내밀어.<br>
+                   근데 코하쿠는 교육 같은 걸 받아본 적도 없고 자기가 자주 쓰는 말도 같이 일하는 형들이 좀좀따리 알려주던 걸<br>
+                   흡수한 것일 뿐이라 계약서가 뭔지 뭐가 적혀있는지 읽지를 못했다.<br>
+                   <br>
+                   자기가 얼마에 팔려가는지도 모르고 겨우 하룻밤을 같이 보낸 사람에게 원래 이런건가? 싶어서 영문을 모르겠다는 듯이<br>
+                   마다라를 바라보면 그저 살포시 웃어주는 마다라만 있을 뿐임.<br>
+                   <br>
+                   마다라는 혹시라도 짐이 있다면 챙기라고 하는데 코하쿠는 절대 너 같은 걸 모시고 살지 않을 거라고 발악을 하면서 방을 나가려고 하지.<br>
+                   <br>
+                   근데 마다라는 그걸 쉽게 놔줄 사람이 아니기 때문에 바로 일어나서 문 손잡이를 잡은 코하쿠의 손을 덥썩 잡아서는<br>
+                   짐이 있다면 사람을 시켜서 가져오게 할테니 일단 나가자며 납치하듯 자기 어깨에 코하쿠를 들쳐매고 방 밖으로 나가.<br>
+                   <br>
+                   코하쿠는 놓으라면서 마다라 등이랑 가슴을 손 발 이용해서 열심히 때리기 시작하는데 마다라는 그거에 아파할 애가 아님.<br>
+                   오히려 코하쿠 엉덩이를 찰싹 때리면서 가만히 안 있으면 기절시킬 거라고 으름장을 놓고<br>
+                   코하쿠가 15년동안 살던 곳에서 강제로 납치아닌 납치를 한다.<br>
+                </p>
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

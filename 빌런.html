@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>코하마다 빌런x히어로</h2>
+                <p> 
+                    <br>
+                    " 마다라 씨의 인솔을 맡게 된 오우카와 코하쿠일세. "<br><br>
+                    누가 들으면 팀의 막내를 인솔하는 선임 같다고 할 것 같은 말이다.<br>
+                    저 작은 손에 목줄만 없었더라면.<br><br><br><br><br>
+                    —<br><br><br><br>
+                    『Crazy:B』<br>
+                    <br>
+                    갑작스럽게 나타난 말벌 3명에 의해 백화점이 무너졌다.<br>
+                    리더로 보이는 빨간 머리는 어린 아이를 인질로 삼았고 히어로들은 벌들의 요구를 들어줄 수 밖에 없었다.<br><br>
+                    " 별로 내키지는 않는 방법이긴 한데, 이것만큼 효율적인게 또 없단 말이지? "<br><br>
+                    아이를 인질로 잡는 빌런이기에 최악이라고 생각했으나 저쪽도 내키지 않는 방법이라고 하니 교화를 시킬 수 있지 않을까 생각했지만<br>
+                    바로 아이의 목에 손을 대는 것을 보고 그 생각은 버려두었다.<br><br>
+                    " 원하는건 역시... 너희들의 막내를 되돌려 받는거겠구나아. "<br><br>
+                    막내라는 말에 셋은 표정을 굳혔고 아이를 인질로 잡은 벌이 고개를 끄덕이며 말을 이어간다.<br><br>
+                    " 그래. 우리의 사랑스러운 막내를 되돌려받기 위해 왔다! 사춘기라 그런가? 말을 잘 안 듣더라고? "<br><br>
+                    " 아마기. 그건 아마기가 잘ㅁ "<br><br>
+                    " 자세한건 넘어가고. 막내를 내놔. 그리고 혹시 모르니 그쪽도 따라오고. 인질은 막내랑 너를 우리의 아지트로 무사히 데려가면 니키에게 원래 있던 곳으로 돌려놓고 오라고 하지. "<br><br>
+                    옆에 있던 회색 머리는 또 자기에게 일을 떠넘긴다며 툴툴거렸다. 정말 팀이 맞는걸까 싶다가도 백화점 하나를 순식간에 무너뜨린걸 보면 악명높은 그 팀이 맞구나 실감하게 된다.<br>
+                    어쨌거나 저 요구를 안 들어줄 수는 없다.<br>
+                    우리는 시민을 지키는 히어로이며 인질은 아직 미래가 창창한 어린 아이다.<br>
+                    벌들의 막내를 풀어줘야한다며 본부에 연락을 넣었으나 썩어빠질대로 썩은 본부에서는 아이 하나쯤은 괜찮지 않냐는 말만 되풀이할 뿐이다.<br>
+                    그러나 아이가 죽으면 다음은 다른 시민일 것이고 시민이 계속 희생되는 모습을 보이면 본부가 위험해질 것이라는 말로 겨우 설득을 했다.<br>
+                    이쯤되면 누가 빌런인지... 가끔은 저기 있는 벌들 보다 본부의 높으신 분들이 더 빌런같단 생각을 하게 되버린다.<br>
+                    내가 원한 히어로는 이게 아닌데.<br><br>
+                    " ...조금만 기다려. "<br><br>
+                    결국 시민의 안전을 나와 벌들의 막내로 교환하는 셈이다.<br>
+                    어떠한 고문도 견딜 수 있을 정도로 튼튼하니 상관은 없지만 자신도 가야한다는 말에는 아무런 대꾸도 하지 않던 본부의 반응에는 정말 기가 찬다.<br>
+                    여러 생각들을 하고 있다보니 본부의 개가 재갈과 수갑으로 꽁꽁 싸매진 분홍 머리카락을 가진 막내 벌을 데려왔다.<br>
+                    그 아이의 목줄을 잡고 벌들에게 다가가니 표정이 더 험악해진다.<br>
+                    사람에게 목줄이라니. 저런 반응도 무리도 아니지.<br>
+                    리더 벌에게 목줄의 줄을 넘겨주려 했으나 그 옆에 있던 파란 머리의 사람이 더욱 빠르게 움직여 막내의 입에 있는 재갈과 목줄, 수갑들을 풀어주었고<br>
+                    막내는 목줄을 받아든채로 멍하니 있다가 제 목에 목줄을 채워버린다.<br><br>
+                    " 이게, 뭐... "<br><br>
+                    목줄을 풀려 손을 움직이자 옆에 있던 막내가 손을 잡아 저지한다.<br><br>
+                    " 가만히 있어야지. 내가 받은 치욕보다는 가볍지 않나? "<br><br>
+                    자신을 노려보는 눈빛이 역시 막내라고는 해도 야생의 말벌이구나 하는 생각과 함께 말을 듣지 않으면 인질로 잡힌 아이가 위험할테니까 손을 내린다.<br>
+                    뒤에서 아이의 어머니로 추정되는 사람이 울부짖었지만 지금은 그저 여기서 기다리면 안전하게 데려다줄테니 조금만 기다려달라는 말 밖에 해줄 수 없었다.<br>
+                    본부는 썩을대로 썩어있다. 마음이 맞던 동료들은 어딘가로 사라지거나 은퇴를 했으며 크게 다쳐 병원에 있는 경우도 있었다.<br>
+                    결국 본부의 지시대로 움직여야하는 히어로보다 자유로운 빌런이 더 우위라는 말이다.<br>
+                    이런저런 생각을 하다보니 어느새 벌들의 아지트에 도착했다. 역시 순간이동의 능력이 있으면 편하구나 싶어 회색 머리를 바라보니 바로 아이를 데리고 어딘가로 사라진다.<br><br>
+                    " ......어머니에게 가는건가? "<br><br>
+                    인질의 안전이 최우선이니 물었고 리더는 짧게 긍정의 대답을 보인다.<br><br>
+                    " ...애까지 인질로 잡고 싶지는 않았어. 다친 곳은 없으니 안심하고. "<br><br>
+                    미친 생각 같지만 본부의 사람들보다 더 다정한 사람들일지도 모른다는 생각을 해버린다.<br>
+                    그러다 막내가 목줄을 당겼는지 당긴 쪽으로 몸이 휘청거렸다.<br>
+                    반항이라도 해볼까 싶다가도 본부에서 만든 물건이니 이능력은 나오지 않겠다는 생각을 하며 능력을 사용해봤으나 역시 능력은 나오지 않았다.<br><br>
+                    " 이건 이제 내가 쓰면 되는건가? "<br>
+                    " 뭐... 코하쿠 쨩이 원하면? 그래서, 본부에 잡혀간 기분은 어때~? 재밌었어? 사람들 엉덩이를 뻥! 하고 차지는 않았고? "<br><br>
+                    리더가 경박스러운 말을 이어가자 막내가 시끄럽다며 화를 내며 목줄을 잡아당기며 어딘가로 이동한다.<br>
+                    회색머리가 돌아와 아이는 안전하게 어머니에게 인도 했슴다! 하는 소리가 들려와 안도의 한숨을 내쉬었지만 자신은 앞으로 어떻게 될지 걱정부터 되었다.<br>
+                    이 막내를 설득해보면 되려나 싶다가도 여기 있는 사람들은 본부 사람들을 싫어하는 것 같아 쉽게 그러지는 못하겠다. 어쨌거나 자신은 그곳에서 오래 살아남은 히어로 중 하나니까.<br><br>
+                    " 저기... ......코하쿠 씨. 코하쿠 씨는 앞으로 어쩔 생각이야아? 마마를 고문 할 생각? "<br><br>
+                    막내는 입을 다물고 자신의 방 같아 보이는 곳에 자신을 데려온 뒤 벽에 목줄의 끝을 고정시켜두었고 도망은 물건너갔구나 싶어 바닥에 앉아 주변을 둘러본다.<br>
+                    귀여운 물건들도 있지만 어딘가 섬뜩해보이는 물건들도 보여 여기서 어떻게 탈출해야하고민하다가 무언가 이상하다는 생각에 입을 열었다.<br><br>
+                    " 이 목줄... ......본부 사람이 아니면 못 열텐데. ......너희, 뭐야? "<br><br>
+                    뭐냐고 물었을 때 100% 진실을 말하는 사람이 어디있을까 싶지만 거기까지는 생각이 닿지 않았다.<br>
+                    들려온 대답은 의외였다.<br><br>
+                    " 우리도 본부 사람이었네. "<br><br>
+                    그러니까 이 빌런들이, 히어로 였다고.<br><br>
+                    " ......벌들은 본 적 없는데. "<br>
+                    " 지하에서 온갖 더러운 일들을 시켰지. "<br><br>
+                    막내의 입에서 나온 말들은 충격적이었다.<br>
+                    말을 듣지 않는 히어로들의 폐기처분은 물론 히어로들의 가족들을 인질로 잡아 윗사람들을 모시게 하는 경우도 있었다고 한다.<br>
+                    벌들은 전부 시설 출신이며 어릴때부터 주인님들의 말은 잘 들어야한다며 세뇌 교육을 당했던 탓에 명령이 내려지면 인권이 침해되어도 실행에 옮겼다고도 한다.<br>
+                    리더라는 사람이 제일 먼저 정신을 차려 동료를 모으려고 했지만 이미 세뇌에 절여져있는 아이들은 본부의 높으신 분에게 어떻게 해야할지 물어보며 뒷통수를 쳤고<br>
+                    그 계획을 들은 본부의 사람들은 폐기처분을 하라며 독방에 가두게 만들었다.<br>
+                    린네 씨도 사람인지라 1대 다수 에는 장사가 없었는지 얌전히 갇혀 폐기만을 기다렸다고 한다.<br>
+                    히메루와 니키는 왜인지 세뇌가 잘 통하지 않아 살아남기 위해 명령을 따르는 척을 했었고<br>
+                    린네가 유일한 희망이라는 생각에 리더를 구해준 뒤 아직 정신이 그나마 남아있는 자신을 데리고 나와 본부와 척을 치게 되었다는 말까지.<br><br>
+                    말을 마치자 아이는 입을 다물었다.<br>
+                    빌런의 말을 믿나?<br><br>
+                    아무 설명 없이 일반인들에게 물어보면 다들 그걸 어떻게 믿냐고 화를 낼 것이다.<br>
+                    하지만 본부의 진실을 알고 있는 히어로들이라면?<br>
+                    당연히 믿을 수 밖에 없다.<br>
+                    썩을대로 썩은 윗대가리들은 자신들의 사리사욕을 채우기 위해 히어로들을 착취하고 있었고 동료들이 사라지거나 더는 움직일 수 없어 은퇴하는 일이 많아졌었다.<br>
+                    전부 정의로운 사람들 뿐이었다.<br>
+                    일하기 귀찮아하고 월급만 받고 튀거나 상사에게 아부만 하던 히어로들은 이상하게 오래 남아있었다.<br><br>
+                    그에비해 이 벌들은?<br><br>
+                    건물을 부수거나 인질을 잡기는 했어도 인명피해는 내지 않았다. 오히려 사람이 다칠 것 같으면 자신들이 다쳤었다.<br>
+                    예전부터 빌런주제에 왜 그랬는지 궁금했었는데 이제야 퍼즐이 하나 둘 맞춰진다.<br><br>
+                    " 그대도 꽤 오래 남아있던 걸로 기억하네만... 역시 본부쪽 사람인가? "<br><br>
+                    여러 생각을 하고 있자니 기분 나쁜 소리가 들려왔다.<br><br>
+                    " 무슨 상상을 하는거람... 내 아버지가 본부 사람인 건 맞는데, 사이 엄청 안 좋아. 동생 때문에 남아있던거지. "<br><br>
+                    변명이다.<br><br>
+                    동생 다리가 안 좋은건 사실이지만 그런건 능력으로 커버 가능했고 가족과는 그닥 사이가 좋지는 않았다.<br>
+                    하지만 이 정도라면 잠깐 속이는 정도는 되겠지.<br><br>
+                    " 그럼... 본부에 대한 생각은 어떤지 물어봐도 괜찮나? "<br><br>
+                    이러니 잡혔지.<br><br>
+                    아직 세뇌가 덜 풀린건가? 아니면 원래 이렇게 멍청한 아이인가? 그것도 아니라면... 감정에 호소하는 편이 먹히는건가?<br><br>
+                    " 거지같아. 내 동료들도 하나 둘 사라지고... 인질보다는 자기들 안위나 걱정하고.<br>
+                    지난번에는 자기들 해외 출장 가는데 본부에 있는 히어로들을 거의 다 데려간거 있지? 그 적은 수로 전국을 돌아다니느라 시민들의 불만이... "<br><br>
+                    계속 진심으로 본부 욕을 하다보니 아차 싶었지만 뭐 어떤가 싶어 헛웃음을 짓는다.<br><br>
+                    " ......그렇게 썩어있어도... ...사람들의 미소가 히어로를 그만두지 못하게 해. "<br><br>
+                    이 말만은 진심이다.<br>
+                    내 손으로 지킨 사람들이 삶을 이어가는 모습을 보다보면 뿌듯하고 기분이 좋아진다.<br>
+                    가끔 지키지 못한 사람들이 꿈에 나와 자신을 괴롭히기는 하지만 그건 그저 꿈일 뿐이니까.<br>
+                    그러자 제 머리 위로 손이 올라왔고 왜인지 토닥거림을 받게 되었다.<br><br>
+                    " 참... 불쌍한 사람이구먼. 그대도, 나도. "<br><br>
+                    그 말이 맞을지도 모른다.<br>
+                    어린 나이에 세상을 일찍 알아버린 너와 썩어빠진 세상임을 알아도 계속 지키려고 하는 자신이.<br>
+                    하지만 그건 그거고.<br><br>
+                    " 근데, 마마를 잡아와서 뭘 하려고오? "<br><br>
+                    지금 상황을 정리해야지.<br>
+                    딱히 고문을 하려고 하는 것 같지도 않고 무해해 보이는 이 아이에게 자신을 맡긴건 무슨 이유인지도 궁금하다.<br><br>
+                    " 글쎄. 왜 내게 맡겼을까. 모르겠네. 전부. "<br><br>
+                    반응이 이상하지만 계속 알고 지내던 사이도 아니기에 아무것도 모르니 뭘 해줄 수가 없다.<br>
+                    혹시 본부에서 뭘 당했나 싶어 아이의 몸을 살펴봐도 흔적 하나 남아있지 않았다.<br>
+                    정말... 그저 장난감 같은 걸로 나를 넘겨준건가?<br>
+                    <br>
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

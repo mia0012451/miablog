@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="#" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>성교육</h2>
+                <p>
+                    강압적 주의 / 또 무슨 트리거가 있을까 곱씹어봐도 생각이 안나니 더 생각나는게 있으면 적겠음.<br>
+                    트위터에 올렸던 거에서 몇 자 추가? 한 것 같음<br>
+                    <br>
+                    현실에서 이러면 안 되는 거 다 인지 하고 있습니다.<br>
+                    2D is 뭔들<br>
+                    <br>
+                    <br>
+                    -
+                    <br>
+                    <br>
+                    마다라랑 코하쿠랑 처음으로 하게 되는 계기는 뭘까<br>
+                    <br>
+                    마다라는 절대 먼저 손 안 댈 것 같고 코하쿠는 그런 거 모를 것 같지만<br>
+                    역시 먼저 손대게 된다면 코하쿠가 먼저가 아닐까?<br>
+                    <br>
+                    모르면 배워오면 되는거고 어린애가 돌진해오는 거 한 두번은 어찌저찌 잘 막아도<br>
+                    그 후로는 코하쿠가 올망올망하게 올려다보면<br>
+                    어... 어?? 하고 어느새 홀라당 넘어가있는...<br>
+                    그런 것도 좋지만 마다라가 성교육 시켜준답시고 콘돔 씌우는 법부터 시작하는데<br>
+                    혹시 모르니까 남자끼리 하는 것도 알려주는 마다라<br>
+                    <br>
+                    코하쿠가 잘 모르겠다고 하면서 마다라 몸으로 알려달라고 덮쳐버리지만<br>
+                    체격차랑 힘 차이로 몇 번은 제지 당하고 계속 그렇게 덤벼드니까<br>
+                    이대로는 안 되겠다 싶어서 한 번 깔려보면 다시는 덤빌 생각 못 하겠지<br>
+                    하면서 깔아버리는 마다라 (적폐 캐해)<br>
+                    <br>
+                    아예 결장까지 뚫려보면 코하쿠 무서워하면서 슬금슬금 도망가겠지만<br>
+                    먼저 도발한 건 코하쿠 씨란다아~?<br>
+                    라고 말하면서 뒤로 엎드리게 만들고 두 손목을 한 손으로 제압하면서<br>
+                    아예 덩치로 찍어 눌러버리는 화산 들소는 참지 않아아~!!! (저기요)<br>
+                    <br>
+                    코하쿠는 계속 그만, 그만... 이러면서 발버둥 치는데 마다라는 멈출 생각 아예 없고<br>
+                    코하쿠는 계속 쾌감 때문에 자연스럽게 허리가 위로 올라오는데<br>
+                    마다라는 그게 조금 불편한지 손바닥으로 꾹꾹 눌러서 다시 내려가게 만들고...<br>
+                    <br>
+                    툭 튀어나온 전립선만 퍽퍽 전력으로 내려치는데 두어번만에 드라이로 가버려서<br>
+                    ㅎ, 끄...으<br>
+                    거리면서 바들바들 떠는 코하쿠.<br>
+                    숨 고를 시간도 안 주고 다시 짓눌러버리듯이 허리짓을 시작하면 생리적으로 눈물부터 나오겠지<br>
+                    안 된다고 살려달라고 다리를 발버둥쳐봐도 발가락을 꼼지락거려봐도 안 멈추고<br>
+                    전립선만 자극되면 점점 살려달라는 소리랑 신음소리만 방 안을 가득 채우겠지.<br>
+                    <br>
+                    코하쿠는 점점 머리속이 새하얘져서 본능적으로 살려고 발버둥치는데<br>
+                    그래도 마다라가 더 힘이 셀테니까 결국 코하쿠 체력만 갉아먹힌 상태가 되어버리기.<br>
+                    <br>
+                    체력 방전된 코하쿠는 진짜 아주 잠깐 숨을 고르려고 했는데<br>
+                    이번에는 축축하다 못해 질척한 코하쿠 앞을 몇 번 만지다가<br>
+                    콘돔은 이렇게 사용하는거란다아~?<br>
+                    라고 말하면서 콘돔 씌워주고 탁탁...<br>
+                    <br>
+                    손으로 자극 주면서 무게 실어서 전립선을 꾸욱 마사지하듯 눌러주면 바로 싸버리고<br>
+                    더는 안 된다고 본능적으로 고개를 절레절레 젓는 코하쿠<br>
+                    <br>
+                    앞 뒤로 다 빼내고 콘돔을 묶어서 옆에 잘 보관해두고 자기가 저질러둔 건 빼주려<br>
+                    욕실로 데려가서 뒷정리를 해주겠지... (마다라도 두번 정도는 갔을 듯)<br>
+                    <br>
+                    후일담?<br>
+                    코하쿠의 정액이 든 묶인 콘돔 입으로 앙 물고 있는 마다라... 가 혼났다 (?)<br>
+                    <br>
+                    근데 코하쿠는 은근 마음에 들어해서 이불에 꽁꽁 싸매여진 상태에서 수줍은 표정으로<br>
+                    다음에 또 하자고 하면 마다라는 이게 아닌데에... 싶은 표정으로 코하쿠 바라보고...<br>
+                    <br>
+                    투비 컨티뉴<br>
+                    <br>
+                    근데 이거 왜이리 길어졌지??? 모르겠음
+                </p>
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>
+

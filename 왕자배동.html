@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>왕자와 배동</h2>
+                <h4>휘핑보이 - 왕자 대신 체벌을 당하는 아이<br>
+                    수위 없음 그냥 때리기만 합니다.</h4>
+                <p>
+
+                    코하쿠와 마다라는 젖먹이 시절부터 함께 자랐다.<br>
+                    왕의 핏줄인 코하쿠와 길거리에 굴러다니는 돌과 비슷한 미천한 신분인 마다라는 절대 엮일 수 없어 보였다.<br>
+                    마다라의 어머니는 귀족이었으나, 평민인 아버지를 만나 사랑에 빠져 아이를 낳았다.<br>
+                    왕족은 왕족끼리, 귀족은 귀족끼리. 그런 법이 있는 것은 아니지만 보는 눈들이 많기에 평민과 사랑에 빠지면 후처로 들이거나 정략결혼을 한 상대의 허락을 받고 만남을 이어가기도 했다.<br>
+                    평민과 결혼하는 귀족의 끝은 비참했다.<br>
+                    집안 망신이라며 집안의 도움은 일절 받을 수 없었다.<br>
+                    혹시라도 평민과 결혼해 어렵게 살고 있어 집에서 돕고 있다는 소식이 퍼지게 된다면 그 집안은 사교계에 발도 들일 수 없게 된다.<br>
+                    마다라의 어머니는 각오하고 또 다짐했다.<br><br>
+                    「어떤 일이 있어도 당신을 사랑할게.」<br><br>
+                    그러나 그 다짐은 의식주가 해결되지 않으니 바로 무너져버렸다.<br>
+                    사랑을 택하기에는 맞닥뜨린 현실이 너무나도 무거웠던 탓일까, 두 사람은 결국 이별을 고하고 젖먹이였던 마다라는 어머니가 데려가 키우기 시작했다.<br>
+                    집안에서는 둘을 별로 반기지 않았다.<br>
+                    귀족이 평민과 결혼했다가 이혼하고 돌아왔다.<br><br>
+                    「 집안 망신도 이런 망신이 없지! 」<br><br>
+                    마다라의 어머니는 모성애가 강한 편이 아니다.<br>
+                    그렇게 생각했다.<br><br>
+                    「 천한 핏줄의 아이는 뭐 하러 데려왔담. 돌려주고 오렴. 」<br><br>
+                    아이를 돌려주라니. 내 배 아파 낳은 내 아이인데, 그 사람을 사랑했었고, 아직도 그 사람을 사랑한다는 미련의 집합체인데.<br>
+                    어머니는 아버지를 사랑했지만 아이를 아버지에게 맡기면 제대로 키울 수 없을 것임을 알고 있다.<br>
+                    의식주가 제대로 해결되지 않아 벌레를 잡아먹고 오염된 물을 끓여 마시는 그런 삶을, 이 아이에게는 주고 싶지 않았기에 힘겹게 결정했다.<br>
+                    그 사람을 닮은 아이를 포기할 수 없어 마다라의 어머니는 왕을 직접 알현하러 걸음을 옮겼다.<br><br>
+                    「 도움을 드렸죠. 그 보답을 받으러 왔습니다. 」<br><br>
+                    마다라의 어머니가 지금의 왕이 왕의 자리에 오를 수 있게 도움을 주었다는 사실은 집안 사람들도 모르는 사실이다.<br>
+                    아이의 아버지와 함께 살 수 있게 도움을 요청해도 됐었으나 왕의 직접적인 도움을 받으며 사는 평민 부부를 사람들이, 특히 평민들이 가만히 두지 않을 것이다.<br><br>
+                    그래서 헤어졌다.<br><br>
+                    귀족이라면 왕의 도움을 한 번쯤은 받을 수 있으니까.<br>
+                    신분의 차이가 없었다면 어머니는 아마 아버지와 평생 살았을 것이다.<br>
+                    어머니는 마다라가 태어난 것을 바로 알린 일을 평생 후회한다고 늘 말해왔다. 아무리 왕이라도 평민으로 강등된 어머니와 아이까지 귀족으로 복구해 줄 수가 없었다.<br>
+                    그렇게 어머니는 유모가, 마다라는 코하쿠의 배동이 되었다.<br><br><br><br>
+                    —<br><br><br><br>
+                    " 코하쿠 씨! 돌아가야지이! "<br>
+                    " 너나 가. "<br><br>
+                    어른의 무릎 위를 넘을까 싶을 정도로 작은 아이 둘이 정원을 뛰어간다.<br>
+                    마다라는 코하쿠의 뒤를 따라가며 허우적거린다.<br><br>
+                    " 수업은 들어야지! 땡땡이 치면 혼나잖아아! 배워야하는 것도 많고...! "<br><br>
+                    신분의 차이 때문일까, 허우적 거리던 것은 코하쿠의 손을 잡으려고 했던 행동이었으나 왕자의 몸에 함부로 손을 댈 수 없었기에 보여진 바보같은 몸짓이였다.<br>
+                    코하쿠는 그런걸 신경 쓰지 않았으나 마다라는 성에서 눈치밥을 먹던 신세여서 그런지 엄청 신경 쓰며 자신의 행동 하나하나를 검열했다.<br>
+                    그래서인지 저런 답답한 모습을 볼 때면 코하쿠는 잔뜩 토라져 마다라가 보이지 않는 곳으로 도망가듯 자리를 피해주었었다.<br><br>
+                    『 같은 젖을 먹고 자란 사이인데 그런게 뭐가 중요하다고. 』<br><br>
+                    코하쿠는 늘 그렇게 말했었지만 마다라는 천한 피가 섞여있으니 중요하다며 반박했었다.<br>
+                    자신의 눈치를 보는 똑같은 나이의 젖형제가 안쓰러워보였기에 두사람 사이에서는 늘 코하쿠가 지는 역할을 맡았다.<br>
+                    그래도 100% 지는 것은 아니다.<br><br>
+                    " 왕자님!! "<br><br>
+                    유모가 코하쿠를 찾아내고 공부방으로 데려다주면 마다라는 늘 반바지로 갈아입고 따라 들어간다.<br><br>
+                    「 짝! 짝! 」<br><br>
+                    왕자가 문제를 틀렸거나 자세가 바르지 않으면 옆에 서서 함께 공부를 하던 마다라의 종아리가 빨개졌다.<br>
+                    오늘처럼 마다라 때문에 억지로 공부방에 들어오게 되면 더 심하게 빨개지거나 붉은 피를 보게 되는 경우도 있었다.<br>
+                    선생들도 마다라가 평민임을 알기에 피를 보더라도 멈추지 않았다.<br>
+                    가끔은 코하쿠가 때리겠다고도 하는데 그럴 때면 마다라의 얼굴은 더 하얗게 질려갔다.<br>
+                    선생들은 그나마 힘을 조절하지만 코하쿠는 정말 아이가 맞는건가 싶을 정도로 세게 내리치기 때문이다.<br>
+                    지옥같은 공부시간이 끝나면 코하쿠는 디저트를 챙기러 간다.<br>
+                    마다라는 종아리를 치료하러 가거나 긴바지로 갈아입고 자신의 어머니의 품에 안겨 배운 지식을 나누기도 했다.<br>
+                    그렇게 몇 년이 지나자 마다라의 종아리는 너덜너덜해져있었다.<br>
+                    2년정도 쉬자고 했을 때 마다라는 엄청 기쁘다는 듯 왕자를 바라봤고 그 날은 마다라의 종아리보다 코하쿠의 볼이 더 붉어져있었다.<br><br><br>
+                    -
+                    <br><br><br><br><br>
+                    두사람이 성인식을 치를 시기까지 자랐다.<br>
+                    2년만 쉬자던 말은 거짓말인지 그 후로 마다라가 맞는 일은 없었다.<br>
+                    코하쿠는 왕좌의 자리에 오를 준비를, 마다라는 떠돌이 상인이 될 것이라며 각자 다가올 미래를 준비하고 있었다.<br><br>
+                    " 마다라 씨. 떠돌이 상인이면 온 대륙을 쏘다니는건가? "<br><br>
+                    젖도 공유했는데 침대도 공유 못 할게 있나. 하는 코하쿠의 말 덕분에 두사람은 계속 한 침대를 공유했었다.<br><br>
+                    " 으응... 새로운 곳에 도착하면 편지랑 특산품 같은 것도 보내줄게에. "<br><br>
+                    둘은 어둑한 방 안 침대에서 도란도란 대화를 나눈다.<br><br>
+                    " 그럼 마다라 씨. 나 해보고 싶은게 있네. "<br>
+                    " ...왕자님이니까 뭐든 말만 하면 할 수 있잖아요. "<br><br>
+                    마다라는 코하쿠의 속을 긁고싶을 때면 늘 존댓말을 하며 두 사람의 사회적 지위를 사용한다.<br>
+                    코하쿠도 그것을 알고 있기에 마다라의 존댓말을 듣고 침대에서 일어나 은으로 만든 회초리를 가져오고 마다라의 옆에 앉는다.<br><br>
+                    " 우리 어릴때 내가 잘못하면 그대가 대신 맞아주었지. "<br><br>
+                    그리고 마다라를 뒤집어 뒤통수가 보이게 눕힌다.<br>
+                    마다라는 긴장했는지 몸이 잔뜩 굳었으나 바로 몸에 힘을 전부 풀어버리는 일이 일어난다.<br><br>
+                    " 오늘은 특별한 곳을 때려보고 싶네. "<br><br>
+                    말이 끝나기 무섭게 잠옷의 바지를 벗겨냈기 때문이다.<br><br>
+                    " 자, 잠깐만. 코, ...왕자님! "<br>
+                    " 부르던 대로 불러. 여기엔 우리 둘밖에 없잖나. "<br>
+                    " 제 머리를 장식하고 싶으셨으면 말을 하시지이...!! "<br><br>
+                    그런 농담아닌 농담을 계속 이어가려 했으나 코하쿠의 손길에 바로 조용해진다.<br>
+                    코하쿠는 마다라의 엉덩이를 쥐고 느리게 주물거리기 시작했다.<br><br>
+                    " 운동 하나? 어릴때도 나보다 크더니. 지금도 크고 단단해서는... "<br><br>
+                    마다라는 뭐라도 반박하고 싶었지만 그랬다간 정말 목 위의 여부를 알 수 없게 되기에 입을 꾹 다물어버린다.<br><br>
+                    " 그때처럼 잘 견디게나. "<br><br>
+                    「 휘익, 짝! 」<br><br>
+                    나무 회초리에서는 바람 소리가 난 적이 없었다. 바람 소리가 사라지고 나면 살을 때리는 큰 소리가 방 안을 가득 채운다.<br>
+                    마다라는 바로 위에 있는 베개를 동앗줄이라도 되는 양 꽉 붙들고 놓지 않는다.<br><br>
+                    「 훽, 짝! 」<br><br>
+                    " 윽. "<br>
+                    " 나무랑은 다른가? 맞아본적 없어서 모르겠네. "<br><br>
+                    속옷을 회초리로 살짝 올려보니 나무로 맞았을 때와 다르게 두대밖에 맞지 않았음에도 잔뜩 붉어진 살이 보인다.<br>
+                    코하쿠가 붉어진 엉덩이를 다시 손에 쥐고 주물거리자 마다라는 몸을 잔뜩 움츠렸고 그게 마음에 들지 않는다는듯 다시 회초리로 엉덩이를 때려댄다.<br><br>
+                    " 마다라. 가만히. 명령이네. "<br>
+                    " 윽. ㄴ, 네에. 흣... "<br><br>
+                    얼마나 때렸을까, 속옷에 붉은 자국이 조금씩 묻어나는 것이 보여 회초리를 치워버린다.<br>
+                    코하쿠는 다시 누워 옆에서 힘겹게 숨을 헐떡이는 마다라를 끌어안는다.<br><br>
+                    " 마다라 씨, 떠돌이 상인 말고 여기서 정원이나 가꾸는건 싫나? "<br>
+                    " 왕궁은 이제 질렸어. ...그리고 더 많은 것을 보고 더 많은 것을 경험하고 돌아와서 실컷 들려줄게에. "<br><br>
+                    평소처럼, 체벌이 끝나면 미래에 대한 대화나 시시콜콜한 대화를 나누며 아픔을 나눠갖기도 했었다.<br>
+                    코하쿠는 대화하기 싫은건지 표정을 찌푸렸다가 자리에서 일어나 시종을 부르는 끈을 두번 잡아당긴다.<br>
+                    그러자 경비대가 우르르 몰려 들어온다.<br>
+                    마다라는 당황하며 다급히 이불을 가져와 아래의 치부를 가린다.<br><br>
+                    " 왕족 모욕죄다. 끌고 가. "<br><br>
+                    그것은 마다라를 가리키며 하는 말이었다.<br>
+
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                 <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+            <h3>최근 게시물</h3>
+            <ul>
+                <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3>소설, 썰</h3>
+            <ul>
+                <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3>그림</h3>
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>코하마다 신과의 조우</h2>
+                <h4>미완</h4>
+                <p>
+                    마다라는 어린시절부터 신을 믿어왔고 섬기기까지 했으니 거부감같은건 존재하지 않았다.<br>
+                    그러나 신은 존재하지 않았고 모시던 신님은 자신과 다를 바가 없던 또래 아이였을 뿐이다.<br>
+                    그렇게 고등학교에 입학한 마다라는 하교하는 길이면 늘 벚꽃 나무가 잔뜩 심어져있는 옛 신당에 들어가 시간을 허비했다.<br>
+                    그런 일로 호되게 당했으니 신당쪽에는 발을 들이지 않을 것이다 라는 어른들의 생각을 속여 쉴 수 있는 장소로 결정한 것이다.<br>
+                    그러다 일이 바빠져 해외에 나갔다 오거나 전국을 오가기 시작했고 신당에는 발길을 끊었다.<br>
+                    간만에 학교에 등교했고 모든 수업이 끝나 하교하는 길에 마다라의 눈에는 신당이 띄었고<br>
+                    들어가지 않은 날이 몇달 되지도 않았는데 이곳저곳이 더러워져있고 나무들이 썩어있기에 보통 이정도로 빨리 썩나? 하는 의문이 들어 신당에 발을 들였다.<br>
+                    그리고 그곳에서 신을 조우했다.<br>
+                    처음에는 신이라고 생각하지 못할 정도로 처참한 몰골이였다.<br>
+                    어린 아이가 처참한 몰골로 쓰러져있길래 경찰을 불렀더니 허위신고를 하면 혼난다고 말하며 돌아갔다.<br><br>
+                    " 허위신고라니... 이 애가 안 보이는건가아? "<br><br>
+                    쓰러져있는 아이의 분홍색 머리카락을 쓰다듬다보니 아이가 눈을 떴고<br><br>
+                    " 고얀놈... "<br><br>
+                    힘 없이 중얼거렸다.<br><br>
+                    " 뭐? 마마가 고얀놈이라고오? "<br><br>
+                    아이는 고개를 끄덕이며 마다라를 끌어안았고 당황한 마다라는 떼어내려고 했지만 무슨 짓을 해도 떼어지지 않아 한숨을 푹 쉬며 바닥에 털푸덕 누워버렸다.<br><br>
+                    " 그대가 발걸음을 끊어버린게 얼마나 됐는줄 아나? "<br>
+                    " 아, 그거 말인데에... 여기 왜 이렇게 엉망이야아? 분명 얼마 안 됐을텐데에. "<br>
+                    " 신을 믿는 사람이 없는데 관리가 되겠나. 나도 겨우 죽다 살아남았는데... "<br>
+                    " 응? ...무슨 말이야, 그거? "<br><br>
+                    아이는 마다라에게서 떨어져 뽈뽈 거리며 제단으로 다가가 손을 뻗고 천천히 눈을 감는다.<br>
+                    그러자 제단쪽이 말끔하게 정리되었고 마다라는 얼떨떨한 표정으로 아이를 바라본다.<br>
+                    아이가 아니다.<br><br>
+                    " ......설마아. "<br><br>
+                    아이는 뒤를 돌아 다시 마다라에게 다가왔고 다시 마다라를 끌어안은채로 얌전히 품 속에서 눈을 감는다.<br><br>
+                    " 지금은 그대밖에 없어서 이정도가 한계일세. 다른 사람을 데려오던가... ......공물을 바치게나. "<br>
+                    아이는 힘없는 말투로 말을 이어간다.<br><br>
+                    " 헛소리를... 무슨 신인지도 모르는데 뭘 바치고 누굴 데려와아? "<br>
+                    " 코하쿠. 이 마을을 지켜주었던 월신 일세. "<br>
+                    " 아르테미스 같은...? "<br>
+                    " 잘 아는구먼. 지금은 평화롭기도 하고... 몇백년이 지나니 나를 모시던 가문이 사라져버려서 이꼴이 되었네. 이대로 가다간 소멸 될 수도 있었을텐데, 그대가 와서 살았네. "<br><br>
+                    이 무슨 허무맹랑한 말인가. 마다라는 어린아이의 모습인 코하쿠를 밀어내 떨어트리고 자리에서 일어난다.<br><br>
+                    " 네가 신이든 뭐든 상관 없어어. 공물 같은 걸 바칠 생각은 더더욱 없고. ...다시는 신을 믿지 않기로 다짐했거드은. "<br><br>
+                    원래 신은 아무런 표정이 없나 싶을 정도로 무표정인 코하쿠가 이를 으득 갈더니 바닥을 툭 툭 가볍게 친다.<br>
+                    그러자 바닥에서 나무 뿌리가 자라나기 시작했고 우득 우두둑 소리가 나며 신당 바닥에서 자라난 나무는 마다라를 덮쳤다.<br><br>
+                    " 이게, 뭐하는 짓이야!? "<br>
+                    " 소멸하고 싶지 않네. "<br><br>
+                    코하쿠는 마다라에게 다가와 다시 끌어안았고 그렇게 둘은 한참을 그러고 있었다.<br><br>
+                    " 이제 슬슬 놔주지이... "<br><br>
+                    마다라가 먼저 침묵을 깬다.<br>
+                    그러나 코하쿠는 무슨 뜻이냐는듯 마다라를 바라봤고 마다라는 무언가 위험하다는 생각을 하며 바둥거린다.<br>
+                    그러나 마다라는 나무를 박살낼 수 있을 정도의 힘을 가지고 있지 않았고 결국 포기하고 얌전히 갇혀있는다.<br><br>
+                    " ...해 지기 전에는 풀어줘. 집에 가야하니까아. "<br>
+                    " 왜 가야하나? "<br><br>
+                    그 한마디에 마다라는 위험한 생각이 맞을지도 모른다는 생각을 하며 머리를 굴린다.<br><br>
+                    " 그야... 집에 가고 학교를 가야 사람들을 데려올 수 있으니까아? 너도 사라지기는 싫다며어. "<br><br>
+                    코하쿠는 무언가 생각하는듯 눈을 천천히 감았다가 뜨고는 점점 마다라에게 가까이 다가간다.<br>
+                    점점 가까워지자 마다라는 기겁을 하며 달아나려 바둥거렸고 코하쿠는 그 움직임을 보고도 멈추지 않고 입을 겹친다.<br>
+                    마다라는 당황하며 떨어지려고 했으나 바로 입 안에 말캉한 혀가 들어와 경직되었고 코하쿠는 그 안을 열심히 헤집는다.<br>
+                    시간이 조금 지나자 둘은 떨어졌고 코하쿠의 혀 위에는 작은 동그란 녹색 구슬이 올라가있었다.<br><br>
+                    " 뭐야아... 뭔데에...... "<br><br>
+                    마다라의 말을 무시하고 코하쿠는 그 구슬을 두 손가락으로 집어들어 혀로 톡 건드렸고 그 순간 마다라의 몸이 파득 떨렸다.<br>
+                    마다라는 이게 뭐냐는듯 코하쿠를 바라봤다. 그러자 자신과 비슷한 또래의 모습으로 변한 코하쿠의 모습이 보였고 다시 혀로 구슬을 건드리려고 하는 코하쿠를 불러버린다.<br><br>
+                    " 잠깐, 잠깐, 저기이...!? 뭔지 말 해줘어... "<br>
+                    " 그대의 기운일세. 이것만 있으면 몇일정도는 떨어져있어도 되겠지. 그리고 돌아오지 않는다면...... 이걸 부술걸세. "<br>
+                    " ...부수면 어떻게 되는데에? "<br>
+                    " 그걸 뭐라고 하더라? 아무것도 못하고 하늘만 멍하니 바라보는 상태가 될걸세. 몇 번 보기는 했지만 끔찍하게 죽어가더군. "<br><br>
+                    마다라는 당황스러운 표정으로 신을 바라본다. 백치가 되어 죽음만을 기다리는 것만은 싫다. 도망만 가면 될 줄 알았는데 크게 방심했다.<br><br>
+                    " 신이... 그래도 되는거야아? "<br>
+                    " 안 될게 있나? 다들 이러네. 살아있는 인간들의 사정따위는 어떻게 되어도 상관 없지.<br>
+                    그저 신을 믿게 만들고 신의 존재를 유지시키게 만드는 것. 그것이 제일 중요하네. 예전에는 전쟁 하나만으로도 통제가 가능했지만...<br>
+                    지금은 너무 평화로워서 말이지. "<br>
+                    " 신과 사람의 관점은 다르다고 알고 있었지만... 이 정도로 다를 줄이야아...... 다시 올게에. 올테니까 그건 다시 돌려줘어. "<br><br>
+                    마다라의 말을 끝으로 코하쿠는 무언가를 생각하다가 입 안에 구슬을 넣고 굴린다.<br>
+                    이로 구슬을 긁거나 혀로 부드럽게 감쌀때마다 마다라의 몸에는 저릿한 느낌이 가 움찔거리는 모습이 보인다.<br>
+                    계속 무언가를 생각하던 코하쿠는 끝내 구슬을 삼켜버리고는 마다라에게 다가가 볼을 쓰다듬어준다.<br><br>
+                    " 그대에게 호기심이 생겼네. "<br><br>
+                    말이 끝나자 마다라의 몸을 감싸던 나무가 줄어들더니 바닥 아래로 사라진다.<br>
+                    도망가려면 지금이 기회일 것 같지만 뭔가 이상해 얌전히 기다려본다.<br><br>
+                    " 그대는 도망가지 않는구려. "<br>
+                    " 도망가면? 갈 수는 있고오? "<br>
+                    " 못 가네. ...카미카쿠시. 라고 알고 있나? 그대는 이제 이곳에서 나갈 수 없네. "<br><br>
+                    마다라는 충격을 받은 표정으로 신을 바라본다. 그러다 비틀대며 일어났고 자신이 들어왔던 입구로 향해 걸어간다.<br>
+                    입구에 도착해 문 밖으로 나간다. 그러나 자신의 앞에 보이는 풍경은 지긋지긋한 신당 안이다. 코하쿠는 느긋하게 누워있었다.<br>
+                    마다라는 그 광경에 화가 나는지 물건을 집어들고 코하쿠에게 던진다.<br>
+                    그러나 역시 맞을리가 없었고 코하쿠가 마다라를 바라보자마자 마다라는 헛구역질을 하며 바닥에 주저앉아버린다.<br><br>
+                    " 대들면 괴롭힐걸세. "<br><br>
+                    그 경고에도 마다라는 다시 힘겹게 일어나 손에 잡히는대로 코하쿠에게 던지며 패악질을 했고 코하쿠는 한숨을 쉬며 마다라에게 다가가 어깨를 툭 건드린다.<br>
+                    그러자 마다라는 헛숨을 들이쉬며 기절해 코하쿠의 품 속으로 고꾸라진다.<br><br><br><br><br>
+                    —<br><br><br><br><br>
+                    마다라가 눈을 뜨자 분홍색 머리카락을 가진 성인이 눈 앞에 자리잡고 있었다.<br>
+                    무슨 일이 있었던 것 같은데. 마다라는 잠시 끄응, 하는 소리를 내더니 코하쿠를 끌어안는다.<br><br>
+                    " 신님... 이상한 꿈을 꿨어어. "<br>
+                    " 어떤 꿈인가? "<br>
+                    " 으음... 마마가 신님에게 물건을 던지다가 기절하는 꿈? "<br>
+                    " 개꿈이네. "<br>
+                    " 그치? 마마가 신님에게 그럴리가 없는데에. "<br><br>
+                    마다라는 코하쿠의 품 속으로 파고 들었고 코하쿠는 그런 마다라의 등을 느리게 토닥거려줄 뿐이다.<br><br>
+                    " 빨리 다른 사람들도 내 신님의 매력을 알고 찾아와야할텐데에. "<br>
+                    " 나는 그대만 있으면 되네. "<br>
+                    " ...마마가 죽으면 어쩌려고. "<br><br>
+                    그런 일은 일어나지 않을 거라며 코하쿠는 다시 마다라를 제 품 안에 가둬버린다.<br>
+                    이 호기심이 사라지면 놓아줄 수 있을까? 그런 생각을 하던 중 코하쿠는 무언가 떠올랐다며 마다라의 하반신을 주무르기 시작한다.<br><br>
+                    " 그대가 내 아이를 낳아버리면 그런 걱정은 하지 않아도 괜찮을텐데. "<br>
+                    " ...마마라고는 하지만 나는 남자인데에? "<br>
+                    " 그대가 나에게 힘을 조금 더 나눠준다면 뭐든 가능하네. "<br>
+                    " 뭐든... "<br><br>
+                    마다라는 결심한듯 실례합니다아. 라며 중얼거리고 코하쿠의 품에서 벗어나 앞에 무릎을 꿇고 코하쿠의 아랫도리에 볼을 대고 부비적거린다.<br><br>
+                    " 마마의 기운... 나눠줄게에. "<br><br>
+                    자처해서 신의 공물이 되는 꼴이 웃기다.<br>
+                    아까까지만 해도 싫다며 발악을 하더만 지금은 알아서 자신의 앞에 무릎을 꿇고 성기를 핥아댄다.<br>
+                    뭔가 더 괴롭히고 싶어져 목구멍 깊숙히 밀어넣자 괴롭다는듯 컥컥 거리는 소리가 아래에서 들려온다.<br>
+                    그래도 신경쓰지 않고 더 안으로 밀어넣었고 뿌리까지 전부 밀어넣자 아래에 있는 마다라는 목구멍을 열고 바들바들 떨기만 한다.<br>
+                    반항도 하지 않고 얌전히 받아내는것이 기특해 머리를 쓰다듬어주며 빼낸다.<br><br>
+                    " ㅋ, 허... 흐윽...... "<br><br>
+                    목이 아픈지 마다라는 표정을 잔뜩 찡그린채로 자신의 목을 손으로 더듬거렸고 그 모습이 보기 싫었는지 코하쿠는 다시 나무들을 자라게 만들어 마다라의 손을 바닥에 고정시켜버린다.<br><br>
+                    " 신님... 봉사하게 해주세요오...... "<br>
+                    " 아래로 잔뜩 하면 되네. "<br><br>
+                    이 다음에 할 행동이 무엇인지 알고 있기 때문일까, 단호한 말에 마다라는 눈을 질끈 감아버린다. <br>
+                    나무 줄기들이 마다라의 바지와 속옷을 벗겨내고 발목을 감싸 들어올린다.<br>
+                    단번에 치부를 드러내게 되어 창피한지 고개까지 돌려버렸으나 나무줄기들이 머리를 다시 돌리게 만든다.<br><br>
+                    " 눈 떠야지. 그래야 제대로된 봉사 아닌가? "<br><br>
+                    그 말에 마다라는 천천히 눈을 떴고 흉기가 아닐까 싶을 정도로 큰 크기의 성기를 보고 몸을 잘게 떨기 시작한다.<br><br>
+                    " 흐윽... ......아...? "<br><br>
+                    들어오기만을 기다리는데 갑자기 마다라의 아래에서 울컥, 액이 쏟아진다. <br><br>
+                    " 이, 이게 뭐... "<br>
+                    " 여기에는 그냥 넣으면 다친다고 하더군. 그래서 그대의 몸을 조금 손봤네. 한번 하고 말 건 아니잖나. "<br>
+                    " 으응...... 네에... "<br><br>
+                    마다라의 얼굴이 순식간에 빨개진다.<br>
+                    코하쿠는 아랑곳 않고 마다라의 안에 성기를 꾸욱 밀어넣었고 마다라는 너무나도 큰 압박감에 순간 숨을 멈췄다가 고개를 뒤로 젖힌다.<br>
+                    그러자 바로 나무줄기가 고개를 제자리로 돌려놓았고 목을 감싼다.<br><br>
+                    꾸욱.<br><br>
+                    나무줄기가 감싼 목을 꽉 조이기 시작한다.<br>
+                    마다라는 갑자기 왜이러는지 몰라 바둥거리지만 이미 몸이 전부 고정되어있고 안에는 큰 물건까지 들어와있어 그닥 도움이 되는 몸짓은 아니였다.<br>
+                    나무줄기는 계속 목을 졸랐고 점점 숨이 막혀와 정신을 반쯤 놓았을 쯤 끝부분만 살짝 들어와있던 것이 결장 안을 파고들어온다.<br>
+                    끄윽, 거리는 소리와 함께 마다라의 아래에서 물줄기가 조금씩 흘러나오기 시작했다.<br>
+                    안으로 전부 들어오자 목을 감싸고 있던 나무줄기가 사라지고 마다라는 그제서야 숨을 제대로 쉴 수 있게 되었다.<br>
+                    <br><br>
+                    <h3>미완</h3>
+
+
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

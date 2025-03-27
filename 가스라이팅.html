@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>코하마다 가스라이팅</h2>
+                <p>
+                    <br>
+                    —<br>
+                    이런 어려운 일이라고는 그 누구도 말해주지 않았다.<br>
+                    잠시 방심한 마다라는 큰 부상을 입고 납치를 당해 어딘가로 끌려가버렸고 코하쿠는 이곳저곳을 떠돌며 정보를 모았다.<br>
+                    정보를 모으니 어느 한 지점에 마다라가 있을 것이라고 추측한 코하쿠는 마다라를 구출해내는 데에 성공했다.<br>
+                    <br><br><br>—<br><br><br><br>
+                    " 마다라 씨, 괜찮나? "<br><br>
+                    마다라가 눈을 뜨자 눈 앞에는 자신을 걱정하며 지금 당장이라도 끌어안아줄 것 같이 허둥거리는 코하쿠가 보였다.<br>
+                    환자를 끌어안을 수는 없으니 저렇게 안달난 걸까.<br><br>
+                    " 으응, 코하쿠 씨도... 괜찮아보여서 다행이야아. "<br><br>
+                    바보같은 웃음을 지어보이니 코하쿠의 표정은 더 어두워졌다.<br>
+                    마다라는 이게 아닌데, 하는 표정으로 바라봤지만 이내 의사가 들어오며 코하쿠는 밖으로 내쫓겼다.<br>
+                    둘은 그 이후로 대화다운 대화를 할 수 없었다.<br>
+                    누구의 잘잘못을 따지게 되어서 싸움이라도 날 것 같기 때문이었다.<br>
+                    퇴원하는 날 까지 둘은 그저 식사는 챙겼는지 몸 상태는 어떤지 그런 시시콜콜한 대화 외에는 전혀 하지 않았다.<br><br><br><br>
+                    —<br><br><br><br>
+                    " 오랜만이네에 "<br><br>
+                    대화를 못 한건 못 한거고, 퇴원 날은 다가왔다.<br>
+                    둘이 같이 살고있는 집으로 돌아온 마다라는 기쁘다는 듯이 냉장고부터 열어본다.<br><br>
+                    " 코하쿠 씨, 제대로 안 챙겼어어? "<br>
+                    " 마다라 씨가 없는데 무슨 맛으로 챙기나. 그냥... 적당히 챙겼네. "<br>
+                    " 성장기 아이는 잘 챙겨먹어야지이! 안 되겠네에. 마마가 코하쿠 씨만을 위한 요리를 해줄게에! "<br>
+                    " 환자가 요리는 무슨 요리. 퇴원 했어도 안정을 취하라는 말은 못 들었나? "<br><br>
+                    투닥거리며 다투는 일상이 이렇게나 좋은 거였구나 싶은 두 사람은 동시에 웃음을 터트렸다.<br>
+                    오랜만에 같이 TV를 보거나 살림을 하거나 대화를 나누다보니 분위기도 무르익어갔다.<br>
+                    마다라는 하고싶다며 보챘지만 코하쿠는 환자를 혹사시킬 수는 없다며 거절했고 결국 마다라가 코하쿠를 덮쳐 가볍게 펠라만 해주고 끝내버렸다.<br>
+                    아쉽지만 환자를 건드릴 수는 없으니 코하쿠는 마다라의 입에서 제 것을 빼내고 마다라의 얼굴에 싸버린다.<br><br>
+                    " 아하하, 코하쿠 씨. 너무 빨리 간 거 아니야아? "<br>
+                    " 오랜만이라 그렇네... 원래 이렇게 빨리 안 가는 거 알지 않나. "<br><br>
+                    억울한 목소리로 답하니 마다라는 웃으며 자신의 얼굴에 묻은 정액을 손가락으로 찍어 핥아보이고 그 모습을 본 코하쿠는 무슨 짓이냐며 다급히 물티슈로 얼굴을 대충 닦아주었다.<br>
+                    그리고는 욕실로 향해 얼굴을 꼼꼼히 닦아주었다.<br><br>
+                    " 코하쿠 씨가 마마 얼굴에 쌌으면서어. "<br><br>
+                    반박할 수 없는 한 마디에 코하쿠는 얼굴을 붉혔고 그렇게 둘은 따뜻한 물에 몸을 녹이다가 나와 뽀송뽀송한 몸으로 서로 껴안고 잠을 청했다.<br><br><br><br>
+                    —<br><br><br><br>
+                    오랜 시간이 지난 후, Double Face가 해체되고 Crazy:B의 일을 마친 코하쿠는 자신에게 온 팬레터를 확인했다.<br>
+                    애정들이 담긴 글자들을 보고있으면 기분도 좋아지고 다음 일을 할 수 있는 원동력이 되기도 하니까.<br><br><br>
+                    툭—<br><br>
+                    " 응? "<br><br>
+                    다른 것과 다를 바 없는 두께를 가진 팬레터를 읽으려고 하자 무언가 떨어졌다.<br>
+                    확인해보니 얇은 USB였고 혹시 몰라 사무실에 들러 낡아서 버리기 직전인 PC로 확인을 했다.<br>
+                    바이러스를 심어뒀을 수도 있으니까. 그런 생각을 하며 버리기 직전인 PC를 찾은 것이다.<br>
+                    내용물은 충격적이었다.<br>
+                    온 몸이 묶여 큰 딜도를 받는 마다라 씨라던가, 전기충격에 움찔거리며 실신하는 모습의 마다라 씨라던가, 약에 취해 몽롱한 표정을 지으며 조수를 뿜어대면서 헥헥 거리는 마다라 씨라던가.<br><br>
+                    " 이게... 대체......... "<br><br>
+                    병원에서는 그저 맞았다고만 써주었기에 이런 일이 있었을 것이라고는 생각하지 못했다.<br>
+                    설마 직계 가족이 아니라서 이것까지는 얘기 해주지 않았던 걸까? 아니면 본인에게만 알려준 것일까? 속이 울렁거린다.<br>
+                    팬레터를 다시 확인해 누가 보낸 것인지 확인 했지만 이름이 적혀있지 않았다. 이건 증거품으로... ..........<br>
+                    그날 저녁, 둘은 간단하게 음식을 배달시켜 저녁을 챙겼고 또 다시 분위기를 타버려 입을 맞추며 키스를 하고 있었다.<br>
+                    예전과 다른 점이라면 코하쿠가 아주 조금 자랐고 마다라는 다 나아서 사람 한둘은 거뜬하게 들고다닐 정도가 되었다는 것이다.<br><br>
+                    " 마다라 씨, ...해도 되나? "<br>
+                    " 그런 걸 물어보니이... 마음대로. "<br><br>
+                    너무나도 좋은 분위기에 계속 이어서 하고 싶었으나 계속 아침에 봤던 영상이 생각 나 속이 울렁거린다.<br><br>
+                    "...잠시, 찬물을 끼얹는 것 같아 미안하지만... 이것 좀 봐줄 수 있나? "<br><br>
+                    바이러스 검사도 끝낸 돈영상 파일을 자신의 휴대폰에 옮겨 USB는 비운 뒤 부숴서 버렸다.<br>
+                    마다라에게 보여주는 영상은 코하쿠가 봤던 영상이었다.<br>
+                    응? 뭔데에? 하면서 다가와 영상을 보던 마다라는 얼굴이 순식간에 창백해져 휴대폰을 뺏으려고 했지만 코하쿠는 뺏길 생각이 없다는 듯 날렵하게 움직여 휴대폰을 지켜냈다.<br><br>
+                    " 평생 말 안 할 생각이었나? "<br>
+                    " ...알 필요 없으니까아... "<br>
+                    " 나는... 마다라 씨의 애인일세. 서로 좋아서 몸도 섞고 있고. ...그런데 알 필요가 없다? "<br><br>
+                    방 안이 순식간에 고요해졌다.<br>
+                    둘은 아무 말도 하지 못했고 먼저 움직인 건 코하쿠였다.<br>
+                    휴대폰을 끄고 마다라의 위로 덮쳐 아래를 무릎으로 꾹 눌러주니 반응을 보인다.<br><br>
+                    " 그 놈들 앞에서, 아주 좋다고 울어대더군. "<br>
+                    " 좋, 았을리가아... "<br>
+                    " 너무 좋아서 기절도 하던데? "<br><br>
+                    다시 침묵이 흘렀고 코하쿠의 한숨으로 침묵은 빠르게 깨졌다.<br>
+                    코하쿠는 순식간에 마다라의 옷들을 전부 벗겨내고 젤만 대충 바른 뒤 뒤에 억지로 자신의 것을 넣어버린다.<br><br>
+                    " 윽, 아... 파아. 코하쿠 씨...- "<br>
+                    " 아플리가. 좋다고 울어야지. 안 그러나? "<br>
+                    " 아, 프다고오...! 풀지도 않고... "<br><br>
+                    마다라의 몸은 바들바들 떨렸고 코하쿠는 그저 화가 난 표정으로 마다라를 내려다볼 뿐이었다.<br><br>
+                    " 알 필요 없다... 라. "<br><br>
+                    그 말을 시작으로 코하쿠는 거칠게 움직이기 시작했고 마다라는 고통 섞인 신음 소리만 낼 수 밖에 없었다.<br><br>
+                    " 악, 윽...! 코, 하쿠 씨...! 진, 진정. 흑... "<br><br>
+                    코하쿠가 움직일 때마다 마다라는 코하쿠의 허벅지를 건드리며 천천히 해달라는 신호를 보냈지만 코하쿠는 그 신호를 무시하고 거칠게 움직여댔다.<br><br>
+                    " 마다라 씨가 아프건 말던. 내가 알 필요는 없는 거 아닌가? "<br>
+                    " 뒤끝 심ㅎ, 해애...! "<br><br>
+                    젤 덕분인지 코하쿠의 물건은 마다라의 안을 잘 쳐댈 수 있었고 마다라도 점점 느끼기 시작하는지 몸을 이리저리 비틀기 시작한다.<br><br>
+                    " 마다라 씨, 원래 이렇게 쉽게 느꼈나. "<br>
+                    " 흑, 아, 아니이... "<br>
+                    " 이상하네... 늘 뒤로는 잘 못 느꼈으면서. 지금은 세우기까지 하고. ...이대로 갈 수 있는 거 아닌가? "<br>
+                    " 아, 아니야아... 앗, 힉...! "<br><br>
+                    코하쿠는 계속 거칠게 움직여댔지만 금방 마다라가 느끼는 곳을 찾았는지 그쪽만 쳐대기 시작했고 마다라는 순식간에 사정해버리고 바들바들 떨어댔다.<br><br>
+                    " ...그정도로 당했으면 개발 당하고도 남았겠네. "<br>
+                    " 흐으으, 으응... 아냐아... 코하쿠 씨, 마마는, 코하쿠 씨 밖에 없어어... "<br><br>
+                    그 말을 들은 코하쿠는 다시 허리를 움직이기 시작했고 아래에 깔린 마다라는 애꿎은 침대 시트만 꾹 꾹 눌러대며 바둥거린다.<br><br>
+                    " 잘, 못 느꼈으면서. 앞을 안 만져주면 못 갔으면서... "<br>
+                    " 아, 시, 싫. ㅇ. 코하, 쿠 씨...! 아냐아, 읏... 방금, 가서어... 이거, 싫, 그마아아... "<br>
+                    " 그래, 그냥 또 가버려라. 내가 싸기 전까지 몇 번이나 쌀지 세어나 보자. "<br><br>
+                    잔뜩 민감해진 탓인지 마다라는 또 다시 가버리고 말았고 너무나도 빠른 사정에 코하쿠는 눈쌀을 찌푸렸다.<br><br>
+                    " 마다라 씨의 몸은 내가 개발시키려고 했는데... "<br><br>
+                    마다라는 연속으로 사정해버린 탓인지 정신도 제대로 못차리며 코하쿠의 말에 대답도 못 한 채로 아래에서 바들바들 떨고 있었다.<br>
+                    다시 한 번 무게를 실어 내벽을 쳐올리니 힉! 하는 소리와 함께 허리를 휘는 모습을 볼 수 있었고 코하쿠는 그 모습이 마음에 들지 않았는지 마다라의 안에서 빼내고 아직도 움찔거리는 마다라의 몸을 만져댄다.<br>
+                    잔뜩 풀린 표정이 마음에 들었으나 이 표정도 자신이 처음으로 본 게 아니라는 생각이 든 코하쿠는 기분 나쁘다는 표정을 지었으며 그 표정을 본 마다라는 가까스로 정신을 붙잡고 떨리는 손으로 코하쿠의 손을 붙잡는다.<br><br>
+                    " 코하쿠 씨... 마마는 코하쿠 씨 밖에 없어어. 알잖아아? "<br>
+                    " 글쎄, 길거리에 굴러다니는 나뭇가지를 넣고 흔들어줘도 좋다고 헥헥 거릴 것 같은데. "<br><br>
+                    마다라의 안색은 바로 창백해졌고 오늘은 이쯤 하자며 끝을 내버렸다.<br>
+                    당연히 뒷처리는 해줬지만 전과 같지 않은 분위기에 마다라는 눈치를 볼 수 밖에 없었다.<br>
+                    <br><br><br><br>
+                    —<br><br><br><br><br>
+                    어딘가?<br>
+                    ××년 ××월 ××일<br>
+                    오전 10:41<br><br>
+                    답장이 없네.<br>
+                    ××년 ××월 ××일<br>
+                    오전 10:42<br><br>
+                    무슨 일 있나?<br>
+                    x×년 ××월 ××일<br>
+                    오전 10:42<br><br>
+                    마다라 씨.<br>
+                    ××년 ××월 ××일<br>
+                    오전 10:43<br><br>
+                    <br>.<br>
+                    .<br>
+                    .<br>
+                    <br><br><br><br>
+                    문자 132, 부재중 전화 215<br>
+                    <br>
+                    " 점점 심해지네에... "<br><br>
+                    잠깐 일 하러 나왔는데 코하쿠의 문자만 100통이 넘게 와있었다. 부재중 전화도 5건만 일이나 친구들 전화였고 나머지는 전부 코하쿠 씨다.<br>
+                    ES는 다들 연결 되어있으니 다른 사람들에게도 물어본 것 같다.<br>
+                    모든 내용에 코하쿠 씨가 들어가있다.<br>
+                    머리가 지끈거린다.<br>
+                    전에는 이러지 않았던 것 같은데.<br>
+                    웅웅, 또 다시 휴대폰의 진동이 울린다. 옆에 있는 게스트가 전화 왔나봐요. 안 받아요? 라는 질문을 던졌으나 받고싶지 않아 멍하니 휴대폰만 바라봤다.<br>
+                    그런데 이번에는 이례적으로 빠르게 끊어졌다.<br>
+                    무슨일이지 싶어 화면을 켜보는데 누군가가 마다라의 손을 잡는다.<br><br>
+                    " 마다라 씨. "<br><br>
+                    땀 범벅인 코하쿠 씨가.<br><br>
+                    " 걱정 했네. "<br><br>
+                    내 위아래를 훑어보며.<br><br>
+                    " ...옆의 사람은? "<br>
+                    " ......오늘의 게스트... "<br>
+                    " 거짓말. "<br>
+                    " ...응? "<br>
+                    " 촬영, 미루게나. "<br><br>
+                    이미 촬영은 끝나서 더 할 것도 없었는데 뭔가 말하기가 힘들다. 원래 이랬었나? 분위기가, 뭔가...<br>
+                    <br><br><br>—<br><br><br><br>
+                    한달이나 지났다.<br>
+                    그 일이 있은 뒤로는 코하쿠의 집착이 더 심해져 GPS 추적기 어플도 설치했고 휴대폰에 있던 연락처도 공유했다.<br>
+                    메신저 ID도 공유했다.<br>
+                    그런 일이 있었으니 이정도는... ......<br><br>
+                    ...이정도는.<br><br><br>
+                    " 심해! "<br>
+                    " 으응? "<br>
+                    " 마마의... 그, 누구지? 잠깐! 말하지 말아봐! "<br><br>
+                    주황머리의 작은 머리통이 이리저리 흔들리는 모습을 멍하니 보고있자니 머리가 또 다시 지끈 거린다.<br><br>
+                    " 아! 스오의 유우군! 그... 코하쿠 군 이었나? "<br>
+                    " 으응, 뭐어. 근데 갑자기이? "<br>
+                    " 갑자기가 아니야! 마마, 지금 안색 안 좋은 거 알아? 세나가 유우 군에게 집착 하는 것 보다 심하다니까!? "<br><br>
+                    실수다. 설마 레오 씨 앞에서까지 표정 관리가 안 될 줄이야.<br><br>
+                    " 괜찮아아...♪ 큰 일이 있었어서 걱정해주는 것 뿐이야아. 레오 씨가 마마를 걱정 해주듯이! "<br>
+                    " 으음... 그런가? 그치만 세나보다 심한 것 같은데... "<br>
+                    " 그건 그렇고~ ... "<br><br>
+                    잘 넘어갔다. 레오 씨에게는 걱정을 끼치고 싶지 않으니까. <br>
+                    일 이야기를 하니 지겨워하는 모습을 보였지만 언제 그랬냐는 듯 인스피레이션이 떠올랐다며 용지에 악보를 그리기 시작한다.<br><br>
+                    " 마다라 씨. "<br>
+                    " 흐약!? "<br><br>
+                    아, 코하쿠 씨다.<br><br>
+                    " 연락을 안 받아서. ...뭐 하고 있었나? "<br><br>
+                    GPS의 화면이 떠있는 것을 보고 속이 답답해졌다.<br><br>
+                    " 으응, 레오 씨랑 일 얘기좀 하고 있었어어. "<br>
+                    " 진짜 일 얘기만 한 거 맞나? ...됐다. 돌아가자. "<br>
+                    " 응? 아니, 아직 일 얘기가... "<br><br>
+                    순식간에 분위기가 싸해진다.<br><br>
+                    " 가자. "<br>
+                    " 코하쿠 군~ 마마를 너무 구속하지 말아줘? 마마는 자유로운 모습이 어울리거든! "<br><br>
+                    더 싸해진다.<br>
+                    코하쿠의 표정이 굳는다.<br>
+                    셋은 아무 말도 못 하고 헤어진다.<br>
+                    레오는 바이바이~ 라며 손까지 흔들어줬지만 둘은 묵묵히 돌아갔다.<br>
+                    " 우왓, 세나! 뒤에 있었어? "<br><br>
+                    " 오늘 일은 나도 참가 했어야 했잖아? 그런데 장소를 안 알려주고 가버리고... 짜증나게 뭐 하자는 건데? "<br>
+                    " 세나라면 찾아올 수 있을 거라고 믿었으니까~♪ "<br>
+                    " 그보다 뭐야, 저거? 괜찮은 거야? "<br>
+                    " ...모르겠어. 그래도 마마가 좋아하는 아이니까. ...마마를 믿을래. 마마가 힘들어하면 최선을 다 해 숨겨줄 거야. "<br><br><br><br>
+                    —<br><br><br><br>
+                    " 윽. "<br><br>
+                    레오와 헤어지고 돌아가는 길이지만 코하쿠의 손 힘이 점점 더 세진다.<br>
+                    다정하게 손을 잡고 걸어본게 언제적 일인지 생각을 할 수 없을 정도로, 코하쿠는 늘 불안해한다.<br><br>
+                    " 코하쿠 씨, 이제 괜찮으니까아... "<br>
+                    " 왜? 저 인간이랑도 붙어먹으려고? "<br>
+                    " 레오 씨는 그런 짓 안 해. 그리고 마마의 애인은 코하쿠 씨 잖아아? "<br><br>
+                    다시 침묵이 이어진다.<br>
+                    집에 들어올 때까지 둘은 말 한마디를 하지 않았다.<br>
+                    철컥. 잘그락. 툭.<br>
+                    마다라가 방에 들어가자마자 밖에서는 자물쇠를 거는 소리가 들렸다.<br>
+                    7개... ...아니, 그 이상인 것 같다.<br><br>
+                    " 코하쿠 씨... 이렇게 까지 안 해도 괜찮아아. 마마 몸은 마마가 지킬 수... "<br><br>
+                    쾅—!<br>
+                    <br>
+                    문을 치는 소리가 들린다.<br><br>
+                    " 몸을 지킬 수 있다고? 그럼 그딴 짓을 왜 당했는데? "<br>
+                    " 그건... "<br><br>
+                    다시 침묵이 이어진다. <br>
+                    마다라는 더이상 마음대로 밖으로 나갈 수 없다.<br>
+                    코하쿠의 허락이 있어야하고 GPS로 항상 감시를 당했으며 문자는 5분 내로, 전화는 부재중 2번까지 봐주겠다는 말을 들으며 살고 있다.<br>
+                    누군가와 함께 있으면 둘의 사이를 의심당하고 무슨 대화를 나눴는지 전부 얘기해야한다.<br>
+                    이 상황이 잘못 되었다는 것 쯤은 알고 있다.<br>
+                    그러나 제 몸 하나 지키지 못해 일어난 일이니 그 누구도 탓할 수가 없었다.<br><br>
+                    코하쿠 씨는. ...그저 자신을 걱정해서 그런 것이다.<br>
+                    주변에서는 가스라이팅이라며 정신 차리라는 말을 여러번 들었지만 내 탓도 있으니까, 아직... 아직 이정도는 감당 가능 하니까.<br>
+                    <br><br><br><br>
+
+                    그래, 감당 가능 하니까.
+
+
+
+
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                 <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+            <h3>최근 게시물</h3>
+            <ul>
+                <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3>소설, 썰</h3>
+            <ul>
+                <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3>그림</h3>
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

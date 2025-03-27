@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>기반 썰</h2>
+                <h4>동반자살/자살 주의. 주절주절 주의.</h4>
+                <p>
+                    트위터에서 주절주절거린거...<br>
+                    밤을달리다 계속 듣고있는데 코하쿠랑 마다라중에 동반자살을 하게된다면 과연 누가 먼저 말을 꺼낼까....<br>
+                    코하쿠는 절대 말 안꺼내고 마다라가 말 꺼낼듯<br>
+                    물론 코하쿠한테 탈탈 털려가면서 말해야함. 앞날이 창창한 아이한테 같이 죽어달라고 하면 마지막까지 쓰레기짓을 하는것같으니까<br>
+                    처음에는 걱정하는 일은 일어나지 않을거라며 안심시켜도 코하쿠는 이미 저자식이 뭔가 일을 꾸미고있다는걸 눈치채겠지<br>
+                    그래서 평소처럼 멱살잡고 (저기요) 짤짤 털어보는데 마다라가 힘들게 입을 여는데...<br><br>
+                    " 코하쿠씨... 만약 같이 죽어달라고하면... "<br><br>
+                    코하쿠의 눈치를 보면서 말을 이어나가는마다라<br>
+                    와 어이없어하는... 어이없어하는게 뭐야 싸대기부터 날렸다가 분에 못이겨서 주먹이 나가는 코하쿠겠지<br><br>
+                    " 니 아직도 그딴 생각하면서 살고있나! "<br><br>
+                    뭐... 초반에만 이러고 중반에는 그려, 오늘은 뭐가 힘들었나? 다독여주고 나중에는 결국 이인간이 어떤말을 하더라도...<br>
+                    이자식을 사랑하게된 순간부터 내가 질수밖에 없었구먼. 납득하면서 설득을 포기하고 같이 죽을 계획을 짜주면 좋겠다<br>
+                    같이 죽을 장소를 찾아보는데 떨어지면 더블페이스의 첫 공연을 했던곳에 떨어지게되는 장소를 찾아내버리고 모든사람들에게 비밀 스케줄이라며 아무것도 알려주지않고<br>
+                    둘만 따로 만나서 마지막으로 얘기를 나누다가 슬슬 떨어질 준비를 하겠지<br><br>
+                    두사람은 손을 맞잡고 발을 내딛어<br><br>
+                    결국 사랑하게된 사람이 지게되는게 좋아<br><br>
+                    뉴스 기사는 어떻게 날까<br><br>
+                    Double Face 미케지마 마다라, 오우카와 코하쿠 동반자살<br><br>
+                    Double Face의 마지막 공연. 이런식으로 나와도 오케이일듯<br><br>
+                    너는 처음으로 웃어주었어. 이 가사가 있으니까 넣어보는....<br>
+                    같이 죽어주겠다고 했을 때 마다라가 씁쓸하게 웃으면 그것도 웃는걸로 쳐주는 코하쿠<br>
+                    드디어 웃는모습을 봤다며 이제는 죽어도 여한이 없을것같다 말하면서 마다라를 꼭 끌어안아주면 마다라는 죄책감에 휩싸여서계속 미안하다고 하겠지<br>
+                    아니면 원래 계획은 동반자살이였는데 마지막에 마다라가 코하쿠를 밀어내고 혼자 죽어버리는것도 꽤.......<br><br>
+                    마다라 혼자 죽으면 코하쿠는 더이상 아이돌로 활동하지않고 집으로 돌아가서 평생 혼자 살았으면 해<br>
+                    크비 애들이 설득을 하려고해도 꽤 오랫동안 같이 활동한사람이 눈앞에서 죽어버렸는데 일이 손에 잡힐리가 없고<br>
+                    팬들에게 웃어줄 힘도 없어진.... 말 그대로 감정이 죽어버린 코하쿠가 되버렸으면<br><br><br>
+                    -<br><br><br>
+                    만약 코하쿠가 같이 죽어달라고한다? 그럼 마다라는 바로 OK할것같음<br>
+                    뭔가... 그냥 내 안의 마다라는 그런애임.... 설득? 주먹다짐? 그딴거 없음. 자살명소까지 추천해줄애임 (저기요)<br>
+                    마지막까지 코하쿠를 꼭 끌어안아주면서 떨어지는 그런...<br><br><br>
+                    -<br><br><br>
+                    마다라는 같이 죽어달라고하면 거의 모든사람들이 이유를 알것같다고 할것같은데 코하쿠는 모르겠음.<br>
+                    왜? 어째서? 하는 눈으로 바라보는 마다라<br>
+                    그냥 아무이유없이 죽음을 원하는 코하쿠면 더 맛있겠다는 생각이 든다<br>
+                    원작 소설에서도 그랬듯이 마다라를 죽음으로 끌고가는게 코하쿠가 되어버리면 얼마나 맛있게요<br>
+                    코하쿠가 죽음을 원하는 이유를 몰라서 마다라는 점점 미쳐가는데 원작을 따라가면 빨리 죽고싶다는 말을 해대는 코하쿠때문에 마다라도 지쳐서<br>
+                    나도 죽고싶은 기분이구나아... 이러면 그제서야 방긋 웃어주는 코하쿠
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>마다코하 수인</h2>
+                <h4>노팅... 또 뭐가있지 암튼 처음부터 19금 주의 짧음 주의</h4>
+                <p>
+                    " 흑, 힉... 마다라, 씨. 안, 들어가. 안, 들어 가아.... "<br>
+                    " 열심히 풀어줬으니 들어갈거란다아...? 4시간이나 공들여 풀어줬잖니이, 겁먹지 말고, 아래 보지 말고. 나만의 코하쿠씨이... "<br>      
+                    평범한 인간들과는 다른 오돌토돌한 돌기가 나있는 크고 팔뚝보다 더 두꺼운게 아닐까 싶을정도로 큰 성기가 툭 하고 겁먹은 코하쿠의 뒤쪽에 닿고야 말았다<br> 
+                    " 히끅.... "<br>
+                    <br>
+                    사랑하는 연인이라고는 하지만 그것과는 별개로 저걸 넣겠다고 하기까지 무려 1년이 걸렸다<br>
+                    처음 봤을 때는 절대 무리라며 둘 사이의 관계는 펠라 이상 가 본 적도 없었고 그마저도 코하쿠는 한 입에 물지 못하고<br>
+                    기둥만 쪽 쪽 빨면서 손으로 자극을 주는 상태로 마다라만 아쉬운 처지가 되었었던것이였다<br>                    
+                    그래도 코하쿠는 사귄지 1년이 되었고 더는 미룰 수 없을것같다 생각해 마음을 굳게 다잡고 넣어보겠다고 결심을 해본건데도 이모양 이꼴이라며<br>
+                    눈을 질끈 감으며 자신을 질책하며 평소같았으면 그냥 후딱 넣고 흔들고 끝내라. 하고 상남자같은 모습을 보였겠지만 후딱 넣었다간 죽는다. 라는 생각에<br>
+                    안들어간다 고개를 절레절레 젓고 있었던것이였다<br>
+                    <br>            
+                    마다라도 코하쿠가 무리하고있는것을 알고있기에 천천히 들어가려고 했다<br>
+                    4시간? 코하쿠가 아프지 않다면 마다라는 하루건 일주일이건 놔주지않고 하루종일 풀어줄 수도 있었다<br>
+                    하지만 그런 시간이 둘에게 있을리가 없었고 4시간이라는 긴 시간동안 뒤를 흐물흐물하게 풀어준 마다라는 이정도면 들어가겠다 싶어 젤로 찰팍거리는 입구에 성기를 가져다대었다<br>
+                    잔뜩 긴장한듯한 모습과 눈을 꾹 감은 모습, 안들어간다는듯 중얼거리는 모습이 귀여워 괜찮다는듯 코하쿠의 머리를 살살 쓰다듬어주며 안으로 꾸욱 비집고 들어가기 시작했다<br>
+                    <br>
+                    " 흐으, 학......! ㅁ, 마다, 라... 마다라, 씨이....- 이, 상... 하, 흐읏 "
+                    <br><br>
+                    당연히 이상하겠지. 평범한 사람이 아닌 인간의 탈을 쓴 동물의것을 물고있으니까.
+                    <br><br>
+                    " 응, 응... 괜찮단다, 코하쿠씨이...- 쉬이... 아직 앞쪽밖에 들어가지 않았어, 진정하려엄? "
+                    <br>
+                    " 앞... 앞, 밖에? 무, 슨 "<br><br>
+                    마다라의 말에 놀란 코하쿠는 눈을 떠 자신의 아래를 내려다봤고 아직도 많이 남아있는 모습을 보고 사색이 된 표정으로 마다라를 바라보며 말을 이어나갔다<br><br>
+                    " 마다라... 씨, ㅇ 우리... 이정도면 많이, 한것 같 다, 그제....? "<br><br>
+                    말이 끝나기 무섭게 조금 시무룩해하는 표정을 지으며 슬금슬금 코하쿠를 끌어안으며 더 안으로 파고들어버린다<br><br>
+                    " 코하쿠씨이... 우리 1년만에 처음으로 하는거잖아아... 응? 한번만, 제대로 해보면 안될까아? "<br>                    
+                    " 흐, 으응.....- 그으, 치만.... "<br><br>
+                    평소같았으면 코하쿠의 힘들어하는 모습때문이라도 여기서 끝냈겠지만 1년만에 용기를 내어 할 수 있다고 자신의 옷자락 끝을 잡고 수줍게 말하던 코하쿠의 모습이 떠오른 마다라는 계속 코하쿠가 힘들어하는데, 이러면 안되는데 싶다가도 더 파고들어가고싶네, 안쪽 깊숙한곳에 씨를 뿌리고싶어. 라는 생각이 충돌하고있었다
+                    <br><br>
+                    " 코하쿠씨이... 제발... 나 1년동안 잘 버텼잖아, 으응..? "<br><br>
+                    그렇게 말 하며 슬금슬금 더 밀어넣어버렸고 그 행동덕에 코하쿠는 죽을것같다며 마다라의 어깨를 붙잡고 거친 숨을 몰아쉬고 있었다<br><br>
+                    " 마다, 라... 씨, 끝나고, 죽, 흑... 죽을, 줄... 알아아.....! "<br>
+                    <br>
+                    죽을줄 알라는 말을 듣자마자 중간까지 한번에 퍽! 하고 쳐 올려버리고는 허리짓을 시작했다<br><br>
+                    " 코, 하쿠씨이... 죽이지는 말아주라, 으응? "<br>
+                    " 응, 흐, 아 안대....깊허어.... 히, 흑...! 그마안, 그만, 멈춰....! "<br><br>
+                    허리짓을 시작하자마자 코하쿠는 죽을것같다며 몸을 이리저리 비틀며 도망가려했고 마다라는 그런 코하쿠를 저지하며 조금만 참으면 기분 좋아질거라며<br>
+                    고개를 숙여 붕 뜬 가슴팍에 입을 맞추기 시작했고 질척거리는 소리에 이어 쪽 쪽 거리는 소리도 함께 나기 시작했다<br><br>
+                    <br>
+                    " 귀여운 내 코하쿠씨 "<br>
+                    " 귀, 엽고 나바... 흑, ㄹ이고오...! 하, 깊 어어... 응, 으, 힉...! 마다라, 씨, 힉 "<br>
+                    " 이보다 더 깊이 들어갈건데... 그 땐 어떻게 하려고, 코하쿠씨이? "<br>
+                    " 뭐, 이... 인간아, 안, 흐으....안돼.... "<br><br>
+                    더 깊숙하게 들어간다는 말이 사실이였는지 아까는 들어오지 않았던 부분에 비집고 들어오는 느낌에 코하쿠는 당황하며<br>
+                    더는 안된다며 고개를 도리도리 저었지만 결정권은 코하쿠에게 있는것이 아니였다<br>
+                    코하쿠의 위에 있는 마다라에게 있었지<br><br>
+                    " 으, 흐... 극.... 말... 도안, ㄷ 마, 마다라 씨.. ㅁ무서, 무섭다... 내, 내 몸 깊숙히... "<br>
+                    " 응, 응. 코하쿠씨 몸 깊숙히 마마가 들어가있어. 1년을 기다려왔네에? "<br><br>
+                    코하쿠는 믿을 수 없다는듯이 풀린 눈으로 마다라의 성기가 자리잡고있을법한 위치의 배 위를 만지작거렸고 그 행위에 마다라는 흥분해서 아예 뿌리 끝까지 천천히 전부 넣어버렸다<br><br>
+                    " 끅...ㅡ "<br>
+                    " 후우... 코하쿠씨, 어때? 나름 천천히... 넣어줬는데에? "<br><br>
+                    코하쿠는 마치 사냥당한 동물처럼 파득 떨며 간간히 발로 시트를 꾹 꾹 누르며 끅 끅 거렸고 아래쪽인 성기에서 하얀 액체가 찔끔찔끔 나오기 시작했다<br><br>
+                    " 흐응... 이런쪽으로 재능이 있다고 해야하는걸까아, 코하쿠씨? "<br><br>
+                    마다라는 그렇게 말하며 허리짓을 아주 천천히 다시 시작했다<br><br>
+                    " 안돼, 안돼... 안돼... 마다라씨, 안돼... "<br><br>
+                    아예 결장을 파고든 상태여서 힘들어 더는 안된다는듯 칭얼거리지만 마다라는 조금 더 힘내보라는듯 사랑스럽다는듯이 코하쿠의 온 몸에 쪽 쪽, 입만 맞춰줄 뿐이였다<br><br>
+                    " 마다라씨이... 그만... 그만, 안이, 꽉.. 꽉 찬 느낌... 흑.... 이, 상.... "<br>
+                    " 그럼, 후우... 코하쿠씨 안에 한번만 싸봐도 될까아...? "<br>
+                    " 뭐든 좋으니 제바알.... "<br>
+                    " 하지만 안에 싸려면 움직여야하는거얼? "<br>
+                    " 뭐든 괜찮네... 제발, 빨리 끝, 힉 "<br><br>
+                    코하쿠의 말이 채 끝나기도 전에 마다라는 다시 허리짓을 시작했고 마다라는 퍽 퍽 소리가 울려퍼지게 거침없이 박아대기 시작했다<br><br>
+                    " ㅎ, 아 힉 .....! 빨, 리... 싸, ㅈ 제 발 "<br>
+                    " 미아안 코하쿠씨, 내가, 가는게 조금... 느려서어...! "<br>
+                    " 아....! "<br><br>
+                    이미 눈이 잔뜩 풀린 코하쿠는 또 한 번 사정하고말았고 그 다음 바로 마다라도 코하쿠 안에 사정하고 말았다<br><br>
+                    문제는<br><br>
+                    마다라의 노팅이 시작되었다는것<br>
+                    노팅이 시작되자마자 마다라의 성기 끝부분이 부풀기 시작하고 그게 코하쿠의 전립선부분과 살짝 맞닿기 시작했던것이다<br><br>
+                    " 윽..... 아...? 자, 자.ㅁ.. 잠... 학...으윽.... "<br>
+                    
+                    " 으응... 코하쿠씨이... 너무 좋다아.... "<br>
+                    그것도 모르고 마다라는 아랫도리를 살살 흔들며 더 자극을 주고있었고 코하쿠의 지옥의 시오후키 5시간은 이제 시작이였다<br>
+
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>

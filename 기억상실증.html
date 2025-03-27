@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #91b4db;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            border-radius: 0px;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 20px;
+        }
+
+        /* Category Box Styles */
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
+            margin: 10px 0;
+        }
+
+        .category ul li a {
+            text-decoration: none;
+            color: #00a8ff;
+            font-size: 16px;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #91b4db;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100%;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .sidebar.show {
+            right: 0;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .widget h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .sidebar .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .widget ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar .widget ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .widget ul li a:hover {
+            background-color: #2b659e;
+        }
+
+        /* Content Area */
+        .content {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        /* Button Styles */
+        .back-btn {
+            background-color: #91b4db; /* 파란색으로 변경 */
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- 게시글 내용 -->
+            <div class="category">
+                <h2>코하마다 기억상실</h2>
+                <p>
+                    바이크 사고가 났단다.<br>
+                    빨리 와달라는 그 사람의 연락을 받고 돌아가던 중, 술을 마시고 운전하던 차와 부딪혔다고 한다.<br>
+                    ...그 사람이 누구지?<br><br><br><br>
+                    —<br><br><br><br><br>
+                    눈을 뜨자 낯선 천장이 자신을 반겼다.<br>
+                    분홍색 머리카락을 가진 소년이 자신의 옆자리를 지키고 있었는데 심각하게 수척해보인다.<br>
+                    힘겹게 손을 움직여 그 아이의 머리카락 끝을 매만지자 번뜩 눈을 떠 믿기지 않는다는 표정으로 나를 바라본다.<br><br>
+                    " 마다라 씨, 조금만... 조금만 기다려보게나. 눈 감지 말고...! "<br><br>
+                    그 말을 끝으로 다급히 자리를 떠나 의사와 간호사들을 잔뜩 데려온다.<br>
+                    하는 행동이나 보이는 표정 변화나, 전부 나를 잘 알고 있는 사람 ...아니, 친밀한 관계인 것 같다.<br><br>
+                    그러나 나는 너를 모른다.<br><br>
+                    호흡기를 떼도 된다는 말과 함께 몸이 얼마나 다쳤는지, 수술은 어떻게 진행됐는지 듣고 움직일 수 있냐는 질문에 자리에서 일어나 몸을 움직여본다.<br>
+                    온 몸이 비명을 지르는 것 같아 바로 침대에 누워 있는 그대로 말하니 옆에 있던 아이의 표정이 어두워진다.<br><br>
+                    네가 왜?<br><br><br><br>
+                    —<br><br><br>
+                    몇 주가 지났다.<br>
+                    몸도 어느정도 회복 됐고 아픈 곳도 많이 사라졌다.<br>
+                    퇴원 해도 괜찮지만 무대에 설 때는 무조건 앉아서 진행할것, 무리하지 말것. 이라고 했지만 내 노래들이 가만히 앉아서 부를 수 있을 법한 노래들도 아니고<br>
+                    분위기도 망칠 것 같아 차라리 당분간 쉬겠다고 해뒀다.<br>
+                    입원 내내 제 옆자리를 지킨 아이는 퇴원해도 된다는 말에 기뻐하면서도 어딘가 많이 초조하고 불안해보였다.<br>
+                    눈을 뜬 첫 날, 내가 너를 기억하지 못한다고 해서일까.<br>
+                    그럼에도 너는 기억하지 못해도 괜찮다고, 기억해낼 수 있을 때 까지 자리를 지키겠다고 했다.<br><br>
+                    『 너도 아이돌이라며? 그럼 네가 있을 자리는 여기가 아니라 팬들이 있는 무대 앞이야. 』<br><br>
+                    어쩌면 상처가 될만한 말을 했을지도 모른다.<br>
+                    그럼에도 너는 끝까지 내 옆을 지켰다.<br>
+                    대체 우리가 무슨 사이인데?<br><br><br>
+                    —<br><br><br><br>
+                    동거하는 사이란다.<br>
+                    언제부터 했냐고 물으니 얼마 안 됐다는 대답이 들려온다.<br>
+                    제 휴대폰 기록을 뒤져봐도 저 아이와 대화했다던가 그런 기록은 남아있지 않았다.<br>
+                    누군가 지워버린걸까?<br>
+                    기분이 썩 좋지 않다.<br>
+                    나는 너를 모르고, 너는 나를 알고 있다.<br>
+                    정말 너무 잘 알고 있어서 버릇이나 좋아하는 예능 프로그램, 노래까지 알아서 보여주며 자신을 잘 챙겨준다.<br>
+                    가슴 한 켠이 아린데 이건 대체 무슨 감정일까.<br>
+                    두려움? 혹은...<br><br><br><br>
+                    너를 관찰하느라 시간 가는 줄 몰랐다.<br>
+                    저녁 시간이 다 되어 밥을 챙겨먹을 시간이 왔다.<br>
+                    너를 돕겠다며 부엌으로 따라갔지만 환자는 가만히 누워있는게 제일 도움이 된다며 침대 위에 눕히고 이불로 꽁꽁 묶어두고 나간다.<br>
+                    어떻게 이불로 이렇게까지 묶어두는거지? 이불이 풀어지지 않기도 했고 몸상태도 그닥 좋지 않아 얌전히 누워있다보니 네가 다시 들어와 자신을 들쳐업고 식탁 앞 의자에 앉혀준 뒤 이불을 풀어준다.<br>
+                    덩치 차도 있는데 어떻게 이렇게까지 할 수 있는걸까 궁금했지만 배가 고프니 그냥 넘어가기로 했다.<br>
+                    ...밥 취향까지 잘 알고 있어서 조금 무서운데.<br>
+                    포슬포슬한 밥에 완벽한 반숙 계란 후라이, 따끈한 된장국.<br>
+                    자잘하게 올라와있는 반찬들도 전부 자신이 좋아하던 것들이다.<br>
+                    그러면서 하는 말은 내 덕분에 요리를 잘 할 수 있게 되었다.<br>
+                    처음에는 다 태워먹고 난리도 아니였다 등, 밥 한끼에도 할 말이 많은지 아이의 입은 쉴 새가 없이 움직였다.<br>
+                    또 다시 가슴 한 켠이 아려온다.<br>
+                    밥을 다 먹고 나니 다시 이불로 자신을 꽁꽁 묶어두고 침대 위에 눕혀둔 뒤 정리를 하고 온다고 나간다.<br>
+                    아니, 환자라도 조금은 움직이게 해줘야하는거 아니야!?<br>
+                    발버둥을 쳐봐도 들려오는 대답은 없다.<br>
+                    시간이 지나자 모든 정리가 끝내고 온 아이가 이불을 풀어주고 나를 끌어안는다.<br>
+                    ...끌어안는다?<br><br>
+                    " 코하쿠 씨...? 잠깐만. 그... 우리 진짜 무슨 사이야...? "<br><br>
+                    그렇게 물으니 아이는 얼굴을 숨기고 대답해준다.<br><br>
+                    " 서로의 멘탈 관리자. "<br><br>
+                    이게 무슨 헛소리야.<br><br>
+                    " 더 자세히 알려줘. "<br>
+                    " 힘들 때 서로 토닥여주고 다정한 말 몇마디 나누는 사이. "<br><br>
+                    같이 유닛 활동도 했다고 들었는데 뭔가 놓치고 있는 것 같아 답답하다.<br>
+                    그래도 네가 말해줬으니 이정도 보상은 괜찮겠지 싶어 등을 토닥여주니 작은 몸이 떨려온다.<br>
+                    무슨 일인가 싶어 너의 턱을 잡고 올려 얼굴을 보니 눈물이 나오려는 것을 참고 있는게 보였다.<br>
+                    참지 않아도 괜찮은데.<br>
+                    다시 너를 내 품에 숨겨주고 등을 토닥여준다.<br>
+                    지금이 힘들 때지?<br>
+                    점점 우는 소리가 커져간다.<br>
+                    처음에는 코를 훌쩍이는 소리만 들려왔는데 점점 입 밖으로도 소리를 내기 시작한다.<br>
+                    이럴거면 왜 기억하지 않아도 괜찮다고 했던걸까.<br>
+                    우리는 대체 무슨 사이였을까.<br><br><br><br><br>
+                    —<br><br><br><br>
+                    그 날 이후로 그 아이는 나를 조금씩 피했다.<br>
+                    안 피했다는 듯 행동하지만 눈에 조금씩 보이는걸 어쩌겠나.<br>
+                    차라리 동거를 그만두고 각자 사는게 어떻냐고 물어보니 그건 싫단다.<br>
+                    우리가 무슨 사이였냐고, 단순 동료 사이가 아니였을 것 같다고 물어보니 나를 꽉 끌어안고 놔주지 않았다.<br>
+                    너무 노골적으로 답을 피하니 답답하다.<br>
+                    다른 사람들에게도 물어보니 함구령이 내려졌는지 다들 모르쇠로 일관한다.<br>
+                    지인들도 모른다고 하고 그 에이치 씨에게도 예를 갖추며 물어봤지만 들려오는 대답은 그 아이가 밝히고 싶지 않아하니 기억을 되찾는 것에만 집중하라는 답만 들려온다.<br>
+                    몸도 전부 회복 되어서 무대를 설 수 있게 되어 물어볼 수 있는 폭이 늘어났다. 그러나 스태프, 심지어 팬들에게까지 넌지시 물어봐도 다들 눈치만 볼 뿐 답을 해주지 않았다.<br>
+                    대체 무슨 사이인데!<br>
+                    조금씩 스트레스가 쌓여간다.<br>
+                    동거도 하고 손도 잡고 포옹도 하고.<br>
+                    이 정도면 거의 사귀는 사이 아닌가? 아니, 그 전에 동성에다가 한참 어린 아이인데...<br>
+                    오늘 각잡고 물어봐야지. 그런 생각을 하며 집으로 들어간다.<br><br>
+                    " 아, 오늘 일정 있다고 그랬었나아... "<br><br>
+                    늘 자신을 반겨주던 작고 귀여운 아이가 없으니 뭔가 쓸쓸하다.<br>
+                    ...쓸쓸한건 쓸쓸한거고. 우리가 무슨 사이인지 집을 뒤져보면 나오겠거니 싶어 방을 뒤져본다.<br>
+                    그래. 뭐가 나오긴 했다.<br><br>
+                    폴라로이드.<br><br>
+                    그것도 서로 입을 맞추고 있는.<br>
+                    아무리 봐도... ......맞지?<br>
+                    사귀는 사이 같다.<br>
+                    뭔가 이상하다.<br>
+                    내가 찍힌게 맞는데 내가 아닌 것 같다.<br>
+                    게다가 이 구도로 찍히려면 다른 사람이 찍어주거나 삼각대를 이용해야하는데 아무리 봐도 구도가...<br><br>
+                    ...남이 찍어줬다.<br><br>
+                    누구지? Crazy:B의 사람들인가? 아니면 다른 누군가?<br>
+                    그런 생각을 하던 중 뒤에서 들리는 물건 떨어지는 소리에 놀라 뒤를 돌아보니 언제 돌아온건지 코하쿠가 있었다.<br><br>
+                    " ...좋은 저녁? "<br><br>
+                    자신의 앞으로 성큼성큼 걸어와 폴라로이드를 뺏어 숨기는데 왜 숨기는지 모르겠다.<br><br>
+                    " 코하쿠 씨... ......우리 정말, 무슨 사이야? "<br><br>
+                    그러자 아이는 우물쭈물 하다가 명치를 아주 세게 가격한다.<br>
+                    숨이 안 쉬어져 콜록거리고 있자 아이는 얼굴을 붉히며 입을 뗀다.<br><br>
+                    " 지금부터 내가 널 다시 꼬실거다. ...이 정도면 대답이 됐으려나. "<br>
+                    " 사람을 치고 그런 말을 하는거야!? "<br><br>
+                    힘겹게 답을 하자 미안하다며 안아주고 가격한 부분을 문질러준다.<br>
+                    병주고 약주고. 그 말이 딱 맞다.<br><br>
+                    " 그대는 늘 도망만 다니니까... 혹시 도망갈까봐 도망갈 수 없게 힘 좀 빼둔걸세. ...많이 아팠나? "<br><br>
+                    어라, 왜...<br><br>
+                    ...왜 저 모습이 귀여워보이지.<br>
+                    
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>
