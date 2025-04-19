@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>mia</title>
+
+    <style>
+
+        /* Global Styles */
+
+        body {
+
+            font-family: 'Arial', sans-serif;
+
+            background-color: #f7f7f7;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+
+        /* Navigation Styles */
+
+        nav {
+
+            background-color: #91b4db;
+
+            color: #fff;
+
+            padding: 1em 0;
+
+            text-align: center;
+
+        }
+
+
+
+        nav a {
+
+            color: rgb(255, 255, 255);
+
+            font-weight: normal;
+
+            padding: 10px 20px;
+
+            text-decoration: none;
+
+            transition: background-color 0.3s ease, font-weight 0.3s ease;
+
+            border-radius: 5px;
+
+            margin: 0 10px;
+
+        }
+
+
+
+        nav a:hover {
+
+            background-color: rgba(255, 255, 255, 0.3);
+
+            font-weight: bold;
+
+            border-radius: 0px;
+
+        }
+
+
+
+        /* Main Content */
+
+        .container {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            padding: 20px;
+
+            justify-content: space-between;
+
+        }
+
+
+
+        .content {
+
+            flex: 3;
+
+            padding-right: 20px;
+
+        }
+
+
+
+        /* Category Box Styles */
+
+        .category {
+
+            background-color: #fff;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #ddd;
+
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            border-radius: 8px;
+
+        }
+
+
+
+        .category h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 10px;
+
+            color: #333;
+
+        }
+
+
+
+        .category ul {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+
+        }
+
+
+
+        .category ul li {
+
+            margin: 10px 0;
+
+        }
+
+
+
+        .category ul li a {
+
+            text-decoration: none;
+
+            color: #00a8ff;
+
+            font-size: 16px;
+
+        }
+
+
+
+        .category ul li a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+
+        /* Sidebar Styles */
+
+        .sidebar {
+
+            width: 250px;
+
+            padding: 20px;
+
+            background-color: #91b4db;
+
+            position: fixed;
+
+            top: 0;
+
+            right: -250px;
+
+            height: 100%;
+
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+
+            transition: right 0.3s ease;
+
+        }
+
+
+
+        .sidebar.show {
+
+            right: 0;
+
+        }
+
+
+
+        .sidebar .widget {
+
+            margin-bottom: 30px;
+
+        }
+
+
+
+        .sidebar .widget h3 {
+
+            font-size: 18px;
+
+            color: #fff;
+
+            margin-bottom: 10px;
+
+            border-bottom: 2px solid #fff;
+
+            padding-bottom: 5px;
+
+        }
+
+
+
+        .sidebar .widget ul {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+
+        }
+
+
+
+        .sidebar .widget ul li {
+
+            margin: 10px 0;
+
+        }
+
+
+
+        .sidebar .widget ul li a {
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            display: block;
+
+            padding: 5px;
+
+            border-radius: 5px;
+
+            transition: background-color 0.3s ease;
+
+        }
+
+
+
+        .sidebar .widget ul li a:hover {
+
+            background-color: #2b659e;
+
+        }
+
+
+
+        /* Content Area */
+
+        .content {
+
+            margin-right: 270px;
+
+            padding: 20px;
+
+        }
+
+
+
+        /* Button Styles */
+
+        .back-btn {
+
+            background-color: #91b4db; /* 파란색으로 변경 */
+
+            color: white;
+
+            padding: 5px 10px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+            transition: background-color 0.3s ease;
+
+            margin-top: 20px;
+
+        }
+
+
+
+        .back-btn:hover {
+
+            background-color: #316fb1; /* 호버 시 어두운 파란색으로 변경 */
+
+        }
+
+
+
+        /* Mobile Adjustments */
+
+        @media (max-width: 768px) {
+
+            .container {
+
+                flex-direction: column;
+
+                padding: 10px;
+
+            }
+
+
+
+            .content {
+
+                margin-right: 0;
+
+            }
+
+
+
+            .sidebar {
+
+                width: 100%;
+
+                margin-top: 20px;
+
+                position: static;
+
+                box-shadow: none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+
+    </nav>
+
+
+
+    <!-- Main Content -->
+
+    <div class="container">
+
+        <div class="content">
+
+            <!-- 게시글 내용 -->
+
+            <div class="category">
+
+                <nav>
+
+                    <h2 style="color: white;">마다코하 감금 Day2. Side</h2>
+
+                    <br>
+
+                    <a href="https://mia0012451.github.io/miablog/감금.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">프롤로그</a>
+
+                    <a href="https://mia0012451.github.io/miablog/감금day1pass.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">Day.1</a>
+
+                    <a href="https://mia0012451.github.io/miablog/감금day2pass.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">Day.2</a>
+
+                    <a href="https://mia0012451.github.io/miablog/감금side.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">Day.2 Side</a>
+
+
+                </nav>
+
+                <p> 
+자신의 아래에 얌전히 깔려있는 상대를 보니 결국 정신을 놔버렸구나 싶었다. <br>
+<br>
+허리를 천천히 움직여 제 것을 이용해 내부를 휘저어봐도 아래에서는 다급한 숨소리만 들려올뿐 아무런 반응이 없었다.<br><br>
+
+다음부터 기절은 시키지 말아야겠다는 생각을 하며 안에 있던 제 것을 빼주고 몸 정리를 깔끔하게 해준다.<br><br>
+
+아직 안에 알들이 들어있겠지만 체온으로 녹는 알들이니 상관 없겠지 싶어 엉망진창인 코하쿠 씨의 옆에 누워 꼭 끌어안아준다.<br><br>
+
+작고 귀여운 내 사랑.<br><br>
+
+어쩌다 반했더라?<br><br>
+
+4살 때 어쩌다 오우카와 집안에 방문하게 됐을 때 반했었나?<br><br>
+
+그 때는 옹알이만 하던 아기인데.<br><br>
+
+손을 쥐었다 펴는 것만 봐도 귀엽고 사랑스러웠다.<br><br>
+
+독차지하고 싶었다.<br><br>
+
+차라리 그 때 납치해서 미케지마 집안에서 키워버릴걸. 하는 생각도 잠시, 바로 고개를 절레절레 젓는다.<br><br>
+
+내 집에서 자랐으면 분명 이렇게 사랑스럽게 자라지는 않았겠지.<br><br>
+
+오우카와 집안은 폐쇄적인걸로 유명했으니 평생 만나지 못할 거라고 생각했었기에 여자친구를 사귀어도 늘 분홍색 머리카락이나 보라색 눈을 가진 사람과 사귀었다.<br><br>
+
+그렇게라도 너의 흔적을 찾아냈다.<br><br>
+
+그러나 지금까지 사귀었던 여자친구들은 이기적이고 약하고 집안의 돈을 탐냈다.<br><br>
+
+그건 네가 아니야.<br><br>
+
+그래서 망가뜨렸다.<br><br>
+
+계속 망가지게 만든다.<br><br>
+
+그러다 코하쿠 씨가 자취를 시작했다는 소식이 들려왔다.<br><br>
+
+이 마을은 내가 범죄를 저질러도 부모의 눈치를 보며 전부 덮어줬으니 지금부터 할 일도 눈감아줄 것이다.<br><br>
+
+자신의 계획을 말하니 아무도 말릴 생각을 하지 않는다.<br><br>
+
+오히려 옆집은 집을 빠르고 조용히 비워주겠다고 했다.<br><br>
+
+전 여자친구들이 어떤 상태인지 알고 있는 보라색 눈이나 분홍색 머리카락을 가진 부모들은 자신들의 아이들은 건드리지 않을거냐고 물어보기까지 한다.<br><br>
+
+당연히 그럴 거라고 대답을 하자 계획에 허술한 부분이 있다며 보완까지 나서서 해준다.<br><br>
+
+사랑을 위해서라면 뭐든 할 수 있다.<br><br>
+
+천천히, 아주 천천히.
+<br><br><br>
+" 아, 코하쿠씨... 괜찮아? 이것좀 전해달라그래서 마침 문을 두드리려던 참이였는데에... "
+<br><br><br>
+미리 조사해둔 코하쿠 씨의 취향에 맞게 가식도 떨고.
+<br><br><br>
+" 미아안~ 마마 집이 조금 더러워서... 혹시 코하쿠씨 집은 어려울까아? "
+<br><br><br>
+가끔은 인간적인 면도 보여주며.
+<br><br><br>
+" 코하쿠씨. 어제의 답례라고 하기에는 조금 그런데... 오늘 마마의 집에 놀러올래? "
+<br><br><br>
+덫을 던진다.
+<br><br><br>
+" 응. 갈래. "
+<br><br><br>
+덫에 스스로 들어오겠다는 말을 들었을 때는 세상이 반짝거리는 것 같았다.
+<br><br>
+도망가지 못하게 구속하고.
+<br><br><br>
+" 좋은 아침. 코하쿠씨 "
+<br><br><br>
+코하쿠 씨의 사진이 도배되어있는 방에 데려오니 믿을 수 없다는 표정을 짓는다.
+<br><br>
+그래, 이 모습이 보고 싶었어.
+<br><br>
+괴로워하는 모습도 보고 싶지만 옆에 두고 괴롭히면 잘 보여주겠지.
+<br><br>
+그 생각대로 잔뜩 괴롭히니 울어주고 정신이 나간듯 가족만 찾는 일도 생겼다.
+<br><br>
+그래도 자신이 망가뜨렸던 여자아이처럼 계속 넋이 나가있지는 않았다.
+<br><br>
+코하쿠 씨는 정신을 차렸다.
+<br><br>
+그래. 이게 내 코하쿠 씨야.
+<br><br>
+약한 모습도 보고 싶어져 더 심하게 괴롭히자 약한 모습을 보여줬으나 아주 짧게 보여주고 다시 정신을 차린다.
+<br><br>
+완벽하다.
+<br><br>
+내 사랑은 강하고 정신력도 강하고 귀엽고 사랑스럽다.
+<br><br>
+지금 자신의 품 속에 있는 코하쿠 씨를 보니 만족감이 차올라 저도 모르게 몸에 힘을 빼버리고 느리게 등을 토닥여준다.<br><br>
+
+기절하면 험한 일을 당할 거라고 말했지만 솔직히 기절하면 좋은 반응을 볼 수 없으니 그닥 끌리지는 않는다.
+<br><br>
+괴로워하며 애원하는 목소리, 안이 꽉 차서 호흡을 가다듬는 숨소리, 자신의 의지와는 상관 없이 떨어지는 눈물까지.<br><br>
+
+그걸 전부 볼 수 없는데 왜 괴롭히겠어.<br><br>
+
+스오우 가에서 분가를 한 뒤 태어난 아이라 온실 속 화초보다도 더 귀하게 자란 막내 도련님 같이 자랐을테지.<br><br>
+
+그러니 덫도 피하지 못하고 내 손에 떨어졌지.<br><br>
+
+바보같고 귀엽고 사랑스러운 막내 도련님은 이제 앞으로 자신의 아래에서 천박하게 살아갈 것이다.
+
+
+
+
+                </p>
+                    
+                <!-- 이전 페이지 버튼 -->
+            <button class="back-btn" onclick="window.location.href='https://mia0012451.github.io/miablog/novelposthome.html'">이전 페이지</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+                <h3>최근 게시물</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>소설, 썰</h3>
+                <ul>
+                    <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                    <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+                </ul>
+            </div>
+    
+            <div class="widget">
+                <h3>그림</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>
