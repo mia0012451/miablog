@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mia</title>
+    <style>
+        /* Global Styles */
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #91b4db;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, font-weight 0.3s ease;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    border-radius: 0px;
+}
+
+/* Main Content */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center; /* Central alignment for thumbnail container */
+}
+
+.content {
+    flex: 3;
+    padding-right: 20px;
+    margin-right: 270px; /* Sidebar space */
+}
+
+/* Thumbnail Container */
+.thumbnail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 150px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-caption {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 0;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #91b4db;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    height: 100%;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+}
+
+.sidebar.show {
+    right: 0;
+}
+
+.sidebar .widget {
+    margin-bottom: 30px;
+}
+
+.sidebar .widget h3 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+}
+
+.sidebar .widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .widget ul li {
+    margin: 10px 0;
+}
+
+.sidebar .widget ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .widget ul li a:hover {
+    background-color: #2b659e;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .content {
+        margin-right: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-top: 20px;
+        position: static;
+        box-shadow: none;
+    }
+
+    .thumbnail {
+        width: 150px;
+        height: 150px; /* Mobile thumbnail size */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="https://mia0012451.github.io/miablog/" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">홈</a>
+        <a href="https://mia0012451.github.io/miablog/novelposthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">소설, 썰</a>
+        <a href="https://mia0012451.github.io/miablog/arthome.html" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">그림</a>
+        <a href="https://mia0012451.github.io/miablog/21.html" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">mv스샷</a>
+        <a href="https://x.com/miamimia_gye" target="_blank" style="text-decoration: none; color: rgb(255, 255, 255); font-weight: normal;" onmouseover="this.style.fontWeight='bold';" onmouseout="this.style.fontWeight='normal';">트위터</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+
+            <style>
+  img {
+    max-width: 100%; /* 화면 너비보다 커지지 않음 */
+    height: auto;    /* 비율 유지 */
+    display: block;
+    margin: 10px auto;
+  }
+</style>
+
+            <!-- Thumbnail Container -->
+            <div class="thumbnail-container">
+                <!-- 그림 썸네일 -->
+                <img src="mv2_jpg/1.png">
+                <img src="mv2_jpg/2.png">
+                <img src="mv2_jpg/3.png">
+                <img src="mv2_jpg/4.png">
+                <img src="mv2_jpg/5.png">
+                <img src="mv2_jpg/6.png">
+                <img src="mv2_jpg/7.png">
+                <img src="mv2_jpg/8.png">
+                <img src="mv2_jpg/9.png">
+                <img src="mv2_jpg/10.png">
+                <img src="mv2_jpg/11.png">
+                <img src="mv2_jpg/12.png">
+                <img src="mv2_jpg/13.png">
+                <img src="mv2_jpg/14.png">
+                <img src="mv2_jpg/15.png">
+                <img src="mv2_jpg/16.png">
+                <img src="mv2_jpg/17.png">
+                <img src="mv2_jpg/18.png">
+                <img src="mv2_jpg/19.png">
+                <img src="mv2_jpg/20.png">
+                <img src="mv2_jpg/21.png">
+                <img src="mv2_jpg/22.png">
+                <img src="mv2_jpg/23.png">
+                <img src="mv2_jpg/24.png">
+                <img src="mv2_jpg/25.png">
+                <img src="mv2_jpg/26.png">
+                <img src="mv2_jpg/27.png">
+                <img src="mv2_jpg/28.png">
+                <img src="mv2_jpg/29.png">
+                <img src="mv2_jpg/30.png">
+                <img src="mv2_jpg/31.png">
+                <img src="mv2_jpg/32.png">
+                <img src="mv2_jpg/33.png">
+                <img src="mv2_jpg/34.png">
+                <img src="mv2_jpg/35.png">
+                <img src="mv2_jpg/36.png">
+                <img src="mv2_jpg/37.png">
+                <img src="mv2_jpg/38.png">
+                <img src="mv2_jpg/39.png">
+                <img src="mv2_jpg/40.png">
+                <img src="mv2_jpg/41.png">
+                <img src="mv2_jpg/42.png">
+                <img src="mv2_jpg/43.png">
+                <img src="mv2_jpg/44.png">
+                <img src="mv2_jpg/45.png">
+                <img src="mv2_jpg/46.png">
+                <img src="mv2_jpg/47.png">
+                <img src="mv2_jpg/47.png">
+                <img src="mv2_jpg/49.png">
+                <img src="mv2_jpg/50.png">
+                <img src="mv2_jpg/51.png">
+                <img src="mv2_jpg/52.png">
+                <img src="mv2_jpg/53.png">
+                <img src="mv2_jpg/54.png">
+                <img src="mv2_jpg/55.png">
+                <img src="mv2_jpg/56.png">
+                <img src="mv2_jpg/57.png">
+                <img src="mv2_jpg/58.png">
+                <img src="mv2_jpg/59.png">
+                <img src="mv2_jpg/60.png">
+                <img src="mv2_jpg/61.png">
+                <img src="mv2_jpg/62.png">
+                <img src="mv2_jpg/63.png">
+                <img src="mv2_jpg/64.png">
+                <img src="mv2_jpg/65.png">
+                <img src="mv2_jpg/66.png">
+                <img src="mv2_jpg/67.png">
+                <img src="mv2_jpg/68.png">
+                <img src="mv2_jpg/69.png">
+                <img src="mv2_jpg/70.png">
+                <img src="mv2_jpg/71.png">
+                <img src="mv2_jpg/72.png">
+                <img src="mv2_jpg/73.png">
+                <img src="mv2_jpg/74.png">
+                <img src="mv2_jpg/75.png">
+                <img src="mv2_jpg/76.png">
+                <img src="mv2_jpg/77.png">
+                <img src="mv2_jpg/78.png">
+                <img src="mv2_jpg/79.png">
+                <img src="mv2_jpg/80.png">
+                <img src="mv2_jpg/81.png">
+                <img src="mv2_jpg/82.png">
+                <img src="mv2_jpg/83.png">
+                <img src="mv2_jpg/84.png">
+                <img src="mv2_jpg/85.png">
+                <img src="mv2_jpg/86.png">
+                <img src="mv2_jpg/87.png">
+                <img src="mv2_jpg/88.png">
+                <img src="mv2_jpg/89.png">
+                <img src="mv2_jpg/90.png">
+                <img src="mv2_jpg/91.png">
+                <img src="mv2_jpg/92.png">
+                <img src="mv2_jpg/93.png">
+                <img src="mv2_jpg/94.png">
+                <img src="mv2_jpg/95.png">
+                <img src="mv2_jpg/96.png">
+                <img src="mv2_jpg/97.png">
+                <img src="mv2_jpg/98.png">
+                <img src="mv2_jpg/99.png">
+                <img src="mv2_jpg/100.png">
+                <img src="mv2_jpg/101.png">
+                <img src="mv2_jpg/102.png">
+                <img src="mv2_jpg/103.png">
+                <img src="mv2_jpg/104.png">
+                <img src="mv2_jpg/105.png">
+                <img src="mv2_jpg/106.png">
+                <img src="mv2_jpg/107.png">
+                <img src="mv2_jpg/108.png">
+                <img src="mv2_jpg/109.png">
+                <img src="mv2_jpg/110.png">
+                <img src="mv2_jpg/111.png">
+                <img src="mv2_jpg/112.png">
+                <img src="mv2_jpg/113.png">
+                <img src="mv2_jpg/114.png">
+                <img src="mv2_jpg/115.png">
+                <img src="mv2_jpg/116.png">
+                <img src="mv2_jpg/117.png">
+                <img src="mv2_jpg/118.png">
+                <img src="mv2_jpg/119.png">
+                <img src="mv2_jpg/120.png">
+                <img src="mv2_jpg/121.png">
+                <img src="mv2_jpg/122.png">
+                <img src="mv2_jpg/123.png">
+                <img src="mv2_jpg/124.png">
+                <img src="mv2_jpg/125.png">
+                <img src="mv2_jpg/126.png">
+                <img src="mv2_jpg/127.png">
+                <img src="mv2_jpg/128.png">
+                <img src="mv2_jpg/129.png">
+                <img src="mv2_jpg/130.png">
+                <img src="mv2_jpg/131.png">
+                <img src="mv2_jpg/132.png">
+                <img src="mv2_jpg/133.png">
+                <img src="mv2_jpg/134.png">
+                <img src="mv2_jpg/135.png">
+                <img src="mv2_jpg/136.png">
+                <img src="mv2_jpg/137.png">
+                <img src="mv2_jpg/138.png">
+                <img src="mv2_jpg/139.png">
+                <img src="mv2_jpg/140.png">
+                <img src="mv2_jpg/141.png">
+                <img src="mv2_jpg/142.png">
+                <img src="mv2_jpg/143.png">
+                <img src="mv2_jpg/144.png">
+                <img src="mv2_jpg/145.png">
+                <img src="mv2_jpg/146.png">
+                <img src="mv2_jpg/147.png">
+                <img src="mv2_jpg/148.png">
+                <img src="mv2_jpg/149.png">
+                <img src="mv2_jpg/150.png">
+                <img src="mv2_jpg/151.png">
+                <img src="mv2_jpg/152.png">
+                <img src="mv2_jpg/153.png">
+                <img src="mv2_jpg/154.png">
+                <img src="mv2_jpg/155.png">
+                <img src="mv2_jpg/156.png">
+                <img src="mv2_jpg/157.png">
+                <img src="mv2_jpg/158.png">
+                <img src="mv2_jpg/159.png">
+                <img src="mv2_jpg/160.png">
+                <img src="mv2_jpg/161.png">
+                <img src="mv2_jpg/162.png">
+                <img src="mv2_jpg/163.png">
+                <img src="mv2_jpg/164.png">
+                <img src="mv2_jpg/165.png">
+                <img src="mv2_jpg/166.png">
+                <img src="mv2_jpg/167.png">
+                <img src="mv2_jpg/168.png">
+                <img src="mv2_jpg/169.png">
+                <img src="mv2_jpg/170.png">
+                <img src="mv2_jpg/171.png">
+                <img src="mv2_jpg/172.png">
+                <img src="mv2_jpg/173.png">
+                <img src="mv2_jpg/174.png">
+                <img src="mv2_jpg/175.png">
+                <img src="mv2_jpg/176.png">
+                <img src="mv2_jpg/177.png">
+                <img src="mv2_jpg/178.png">
+                <img src="mv2_jpg/179.png">
+                <img src="mv2_jpg/180.png">
+                <img src="mv2_jpg/181.png">
+                <img src="mv2_jpg/182.png">
+                <img src="mv2_jpg/183.png">
+                <img src="mv2_jpg/184.png">
+                <img src="mv2_jpg/185.png">
+                <img src="mv2_jpg/186.png">
+                <img src="mv2_jpg/187.png">
+                <img src="mv2_jpg/188.png">
+                <img src="mv2_jpg/189.png">
+                <img src="mv2_jpg/190.png">
+                <img src="mv2_jpg/191.png">
+                <img src="mv2_jpg/192.png">
+                <img src="mv2_jpg/193.png">
+                <img src="mv2_jpg/194.png">
+                <img src="mv2_jpg/195.png">
+                <img src="mv2_jpg/196.png">
+                <img src="mv2_jpg/197.png">
+                <img src="mv2_jpg/198.png">
+                <img src="mv2_jpg/199.png">
+                <img src="mv2_jpg/200.png">
+                <img src="mv2_jpg/201.png">
+                <img src="mv2_jpg/202.png">
+                <img src="mv2_jpg/203.png">
+                <img src="mv2_jpg/204.png">
+                <img src="mv2_jpg/205.png">
+                <img src="mv2_jpg/206.png">
+                <img src="mv2_jpg/207.png">
+                <img src="mv2_jpg/208.png">
+                <img src="mv2_jpg/209.png">
+                <img src="mv2_jpg/210.png">
+                <img src="mv2_jpg/211.png">
+                <div class="thumbnail-caption">1</div>
+            </div>
+
+            </div>
+        </div>
+
+       <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="widget">
+                <h4 style="color: rgb(255, 255, 255);">성인 게시물은 표시되지 않습니다.</h4>
+            <h3>최근 게시물</h3>
+            <ul>
+                <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3>소설, 썰</h3>
+            <ul>
+                <li><a href="https://mia0012451.github.io/miablog/기억상실증.html">코하마다 기억상실증</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/밤을달리다.html">코하마다 밤을달리다</a></li>
+                <li><a href="https://mia0012451.github.io/miablog/빌런.html">코하마다 빌런x히어로</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3>그림</h3>
+            <ul>
+                <li><a href="#">1</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="https://x.com/miamimia_gye">트위터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 20250326 Mia</p>
+    </footer>
+
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        
+        // 마우스가 sidebar 영역에 들어오면 show 클래스를 추가하여 보이도록 함
+        sidebar.addEventListener('mouseenter', () => {
+            sidebar.classList.add('show');
+        });
+
+        // 마우스가 sidebar 영역을 떠나면 show 클래스를 제거하여 숨김
+        sidebar.addEventListener('mouseleave', () => {
+            sidebar.classList.remove('show');
+        });
+    </script>
+
+</body>
+</html>
